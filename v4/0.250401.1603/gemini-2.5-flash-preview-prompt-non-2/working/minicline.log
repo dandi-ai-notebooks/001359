@@ -1,0 +1,2837 @@
+Using model: google/gemini-2.5-flash-preview
+Num. messages in conversation: 2
+Submitting completion request...
+Processing response...
+The user wants me to create a Jupytext notebook (`notebook.py`) to explore Dandiset 001359 version 0.250401.1603.
+The notebook should include:
+- A markdown title.
+- A prominent warning about AI generation.
+- An overview of the Dandiset with a link.
+- A summary of the notebook content.
+- A list of required Python packages.
+- Code to load the Dandiset using the DANDI API.
+- Code to load one specific NWB file, print some metadata, explain the file path and URL, and provide a neurosift link.
+- A markdown summary of the NWB file contents.
+- Code to load and visualize some data from the NWB file.
+- Potentially more visualizations of other data.
+- A potential advanced visualization combining multiple data types.
+- A summary of findings and future directions.
+- Explanatory markdown cells throughout.
+
+The user has provided a plan:
+1. Get Dandiset metadata using `python tools_cli.py dandiset-info ...`.
+2. Get Dandiset assets using `python tools_cli.py dandiset-assets ...`.
+3. Choose one NWB file and get its info using `python tools_cli.py nwb-file-info ...`.
+4. (Placeholder - ignore)
+5. Write `notebook.py`.
+6. Convert and execute using `jupytext` and `jupyter execute`.
+
+I need to execute the first three steps of the plan using the `execute_command` tool to gather the necessary information before writing the notebook.
+The first command is `python tools_cli.py dandiset-info 001359 --version 0.250401.1603`. This seems safe and does not modify the system, so `requires_approval` should be false.
+
+Tool: execute_command
+Params: {'command': 'python tools_cli.py dandiset-info 001359 --version 0.250401.1603', 'requires_approval': 'false'}
+================================
+Command to be executed
+python tools_cli.py dandiset-info 001359 --version 0.250401.1603
+================================
+{
+  "results": {
+    "id": "DANDI:001359/0.250401.1603",
+    "name": "20250331_AIBS_Patchseq_human",
+    "about": [],
+    "access": [
+      {
+        "status": "dandi:OpenAccess",
+        "schemaKey": "AccessRequirements"
+      }
+    ],
+    "license": [
+      "spdx:CC-BY-4.0"
+    ],
+    "version": "0.250401.1603",
+    "citation": "Gonzalez, Limary; Allen Institute for Brain Science; National Institute of Mental Health;  Kalmbach, Brian; Dalley, Rachel; Lein, Ed; Lee, Brian (2025) 20250331_AIBS_Patchseq_human (Version 0.250401.1603) [Data set]. DANDI Archive. https://doi.org/10.48324/dandi.001359/0.250401.1603",
+    "keywords": [
+      "Patch-seq, human, multimodal"
+    ],
+    "protocol": [
+      "https://www.protocols.io/view/patch-seq-recording-and-extraction-8epv51n45l1b/v3"
+    ],
+    "identifier": "DANDI:001359",
+    "contributor": [
+      "Gonzalez, Limary",
+      "Allen Institute for Brain Science",
+      "National Institute of Mental Health",
+      " Kalmbach, Brian",
+      "Dalley, Rachel",
+      "Lein, Ed",
+      "Lee, Brian"
+    ],
+    "dateCreated": "2025-03-12T20:32:20.781863+00:00",
+    "description": "HMBA Lein PatchSeq upload (human) (Q1 2025)",
+    "variableMeasured": [
+      "CurrentClampStimulusSeries",
+      "ProcessingModule",
+      "CurrentClampSeries",
+      "VoltageClampSeries",
+      "VoltageClampStimulusSeries"
+    ],
+    "measurementTechnique": [
+      {
+        "name": "voltage clamp technique",
+        "schemaKey": "MeasurementTechniqueType"
+      },
+      {
+        "name": "current clamp technique",
+        "schemaKey": "MeasurementTechniqueType"
+      },
+      {
+        "name": "analytical technique",
+        "schemaKey": "MeasurementTechniqueType"
+      }
+    ]
+  }
+}
+Total prompt tokens: 8930 + 0
+Total completion tokens: 490 + 0
+
+=========================================
+
+execute_command 'python tools_cli.py dandiset-info 001359 --version 0.250401.1603' (requires approval):
+Command executed successfully
+STDOUT:
+{
+  "results": {
+    "id": "DANDI:001359/0.250401.1603",
+    "name": "20250331_AIBS_Patchseq_human",
+    "about": [],
+    "access": [
+      {
+        "status": "dandi:OpenAccess",
+        "schemaKey": "AccessRequirements"
+      }
+    ],
+    "license": [
+      "spdx:CC-BY-4.0"
+    ],
+    "version": "0.250401.1603",
+    "citation": "Gonzalez, Limary; Allen Institute for Brain Science; National Institute of Mental Health;  Kalmbach, Brian; Dalley, Rachel; Lein, Ed; Lee, Brian (2025) 20250331_AIBS_Patchseq_human (Version 0.250401.1603) [Data set]. DANDI Archive. https://doi.org/10.48324/dandi.001359/0.250401.1603",
+    "keywords": [
+      "Patch-seq, human, multimodal"
+    ],
+    "protocol": [
+      "https://www.protocols.io/view/patch-seq-recording-and-extraction-8epv51n45l1b/v3"
+    ],
+    "identifier": "DANDI:001359",
+    "contributor": [
+      "Gonzalez, Limary",
+      "Allen Institute for Brain Science",
+      "National Institute of Mental Health",
+      " Kalmbach, Brian",
+      "Dalley, Rachel",
+      "Lein, Ed",
+      "Lee, Brian"
+    ],
+    "dateCreated": "2025-03-12T20:32:20.781863+00:00",
+    "description": "HMBA Lein PatchSeq upload (human) (Q1 2025)",
+    "variableMeasured": [
+      "CurrentClampStimulusSeries",
+      "ProcessingModule",
+      "CurrentClampSeries",
+      "VoltageClampSeries",
+      "VoltageClampStimulusSeries"
+    ],
+    "measurementTechnique": [
+      {
+        "name": "voltage clamp technique",
+        "schemaKey": "MeasurementTechniqueType"
+      },
+      {
+        "name": "current clamp technique",
+        "schemaKey": "MeasurementTechniqueType"
+      },
+      {
+        "name": "analytical technique",
+        "schemaKey": "MeasurementTechniqueType"
+      }
+    ]
+  }
+}
+
+=========================================
+
+Using model: google/gemini-2.5-flash-preview
+Num. messages in conversation: 4
+Submitting completion request...
+Processing response...
+I have successfully retrieved the Dandiset metadata.
+The next step in the plan is to get the Dandiset assets using `python tools_cli.py dandiset-assets 001359 --version 0.250401.1603`. This command also seems safe and does not modify the system, so `requires_approval` should be false.
+
+Tool: execute_command
+Params: {'command': 'python tools_cli.py dandiset-assets 001359 --version 0.250401.1603', 'requires_approval': 'false'}
+================================
+Command to be executed
+python tools_cli.py dandiset-assets 001359 --version 0.250401.1603
+================================
+{
+  "results": {
+    "count": 391,
+    "results": [
+      {
+        "asset_id": "c269347a-2d4b-4b6a-8b7c-2ef303ff503d",
+        "path": "sub-1203384279/sub-1203384279_ses-1207262032_icephys.nwb",
+        "size": 32063914
+      },
+      {
+        "asset_id": "6ea1c410-f443-44ef-a471-41fdf7bc8760",
+        "path": "sub-1203384279/sub-1203384279_ses-1207304122_icephys.nwb",
+        "size": 47286449
+      },
+      {
+        "asset_id": "f9663375-c4d6-4a9a-941f-c93c8a7b333a",
+        "path": "sub-1203384279/sub-1203384279_ses-1207418023_icephys.nwb",
+        "size": 41982914
+      },
+      {
+        "asset_id": "67dc935f-cbc1-4255-bfbf-b8a3b21dacf9",
+        "path": "sub-1203384279/sub-1203384279_ses-1207984257_icephys.nwb",
+        "size": 50159633
+      },
+      {
+        "asset_id": "e11626f5-2176-48fc-9c4e-26da02787ba3",
+        "path": "sub-1203384279/sub-1203384279_ses-1208065964_icephys.nwb",
+        "size": 56718070
+      },
+      {
+        "asset_id": "5872cc47-362e-48b2-b228-a86e4b26b476",
+        "path": "sub-1211237280/sub-1211237280_ses-1211340847_icephys.nwb",
+        "size": 45951099
+      },
+      {
+        "asset_id": "f863d402-ba33-416e-a605-36cead68f775",
+        "path": "sub-1213383385/sub-1213383385_ses-1213420947_icephys.nwb",
+        "size": 50781052
+      },
+      {
+        "asset_id": "566f4539-feb0-44d4-8984-422c617a6a1a",
+        "path": "sub-1213383385/sub-1213383385_ses-1213430531_icephys.nwb",
+        "size": 49192794
+      },
+      {
+        "asset_id": "99b373ea-693c-46f7-ac1f-f36d70c97c5a",
+        "path": "sub-1213383385/sub-1213383385_ses-1213591749_icephys.nwb",
+        "size": 95853828
+      },
+      {
+        "asset_id": "0687fadd-6576-4e2b-ae02-88f1c902c964",
+        "path": "sub-1213383385/sub-1213383385_ses-1213661643_icephys.nwb",
+        "size": 45242204
+      },
+      {
+        "asset_id": "060db773-6e1a-4831-bea5-e4b574227100",
+        "path": "sub-1213383385/sub-1213383385_ses-1214380221_icephys.nwb",
+        "size": 99397101
+      },
+      {
+        "asset_id": "999beb0e-2641-403c-8e4f-e05ec0485a6a",
+        "path": "sub-1214619242/sub-1214619242_ses-1214734945_icephys.nwb",
+        "size": 30482169
+      },
+      {
+        "asset_id": "fb159c84-ef03-4c69-89c3-9b8ffcb0f785",
+        "path": "sub-1214619242/sub-1214619242_ses-1214735405_icephys.nwb",
+        "size": 86842845
+      },
+      {
+        "asset_id": "e39ccabb-76c3-4608-8f6e-f067ee992af2",
+        "path": "sub-1214619242/sub-1214619242_ses-1214760673_icephys.nwb",
+        "size": 38489303
+      },
+      {
+        "asset_id": "589ce954-ea41-4a07-af41-1e457ae1563e",
+        "path": "sub-1214619242/sub-1214619242_ses-1214763783_icephys.nwb",
+        "size": 48763321
+      },
+      {
+        "asset_id": "c23f8dbf-a4f9-4c21-bd43-f4b08fd6eb66",
+        "path": "sub-1214619242/sub-1214619242_ses-1214775550_icephys.nwb",
+        "size": 57118726
+      },
+      {
+        "asset_id": "691de7dd-88d6-4fe3-8768-e9d0217725cb",
+        "path": "sub-1214619242/sub-1214619242_ses-1214783893_icephys.nwb",
+        "size": 39451606
+      },
+      {
+        "asset_id": "2ed4056f-4b29-4a30-b890-26f93095d8cd",
+        "path": "sub-1214619242/sub-1214619242_ses-1215799634_icephys.nwb",
+        "size": 99800775
+      },
+      {
+        "asset_id": "12b18200-b150-43c6-ac91-00263b99ea09",
+        "path": "sub-1214619242/sub-1214619242_ses-1215881564_icephys.nwb",
+        "size": 62404393
+      },
+      {
+        "asset_id": "21e8eb74-5d84-41e7-a150-1b66a24ffff0",
+        "path": "sub-1214619242/sub-1214619242_ses-1216158141_icephys.nwb",
+        "size": 45956291
+      }
+    ]
+  }
+}
+Total prompt tokens: 19079 + 0
+Total completion tokens: 647 + 0
+
+=========================================
+
+execute_command 'python tools_cli.py dandiset-assets 001359 --version 0.250401.1603' (requires approval):
+Command executed successfully
+STDOUT:
+{
+  "results": {
+    "count": 391,
+    "results": [
+      {
+        "asset_id": "c269347a-2d4b-4b6a-8b7c-2ef303ff503d",
+        "path": "sub-1203384279/sub-1203384279_ses-1207262032_icephys.nwb",
+        "size": 32063914
+      },
+      {
+        "asset_id": "6ea1c410-f443-44ef-a471-41fdf7bc8760",
+        "path": "sub-1203384279/sub-1203384279_ses-1207304122_icephys.nwb",
+        "size": 47286449
+      },
+      {
+        "asset_id": "f9663375-c4d6-4a9a-941f-c93c8a7b333a",
+        "path": "sub-1203384279/sub-1203384279_ses-1207418023_icephys.nwb",
+        "size": 41982914
+      },
+      {
+        "asset_id": "67dc935f-cbc1-4255-bfbf-b8a3b21dacf9",
+        "path": "sub-1203384279/sub-1203384279_ses-1207984257_icephys.nwb",
+        "size": 50159633
+      },
+      {
+        "asset_id": "e11626f5-2176-48fc-9c4e-26da02787ba3",
+        "path": "sub-1203384279/sub-1203384279_ses-1208065964_icephys.nwb",
+        "size": 56718070
+      },
+      {
+        "asset_id": "5872cc47-362e-48b2-b228-a86e4b26b476",
+        "path": "sub-1211237280/sub-1211237280_ses-1211340847_icephys.nwb",
+        "size": 45951099
+      },
+      {
+        "asset_id": "f863d402-ba33-416e-a605-36cead68f775",
+        "path": "sub-1213383385/sub-1213383385_ses-1213420947_icephys.nwb",
+        "size": 50781052
+      },
+      {
+        "asset_id": "566f4539-feb0-44d4-8984-422c617a6a1a",
+        "path": "sub-1213383385/sub-1213383385_ses-1213430531_icephys.nwb",
+        "size": 49192794
+      },
+      {
+        "asset_id": "99b373ea-693c-46f7-ac1f-f36d70c97c5a",
+        "path": "sub-1213383385/sub-1213383385_ses-1213591749_icephys.nwb",
+        "size": 95853828
+      },
+      {
+        "asset_id": "0687fadd-6576-4e2b-ae02-88f1c902c964",
+        "path": "sub-1213383385/sub-1213383385_ses-1213661643_icephys.nwb",
+        "size": 45242204
+      },
+      {
+        "asset_id": "060db773-6e1a-4831-bea5-e4b574227100",
+        "path": "sub-1213383385/sub-1213383385_ses-1214380221_icephys.nwb",
+        "size": 99397101
+      },
+      {
+        "asset_id": "999beb0e-2641-403c-8e4f-e05ec0485a6a",
+        "path": "sub-1214619242/sub-1214619242_ses-1214734945_icephys.nwb",
+        "size": 30482169
+      },
+      {
+        "asset_id": "fb159c84-ef03-4c69-89c3-9b8ffcb0f785",
+        "path": "sub-1214619242/sub-1214619242_ses-1214735405_icephys.nwb",
+        "size": 86842845
+      },
+      {
+        "asset_id": "e39ccabb-76c3-4608-8f6e-f067ee992af2",
+        "path": "sub-1214619242/sub-1214619242_ses-1214760673_icephys.nwb",
+        "size": 38489303
+      },
+      {
+        "asset_id": "589ce954-ea41-4a07-af41-1e457ae1563e",
+        "path": "sub-1214619242/sub-1214619242_ses-1214763783_icephys.nwb",
+        "size": 48763321
+      },
+      {
+        "asset_id": "c23f8dbf-a4f9-4c21-bd43-f4b08fd6eb66",
+        "path": "sub-1214619242/sub-1214619242_ses-1214775550_icephys.nwb",
+        "size": 57118726
+      },
+      {
+        "asset_id": "691de7dd-88d6-4fe3-8768-e9d0217725cb",
+        "path": "sub-1214619242/sub-1214619242_ses-1214783893_icephys.nwb",
+        "size": 39451606
+      },
+      {
+        "asset_id": "2ed4056f-4b29-4a30-b890-26f93095d8cd",
+        "path": "sub-1214619242/sub-1214619242_ses-1215799634_icephys.nwb",
+        "size": 99800775
+      },
+      {
+        "asset_id": "12b18200-b150-43c6-ac91-00263b99ea09",
+        "path": "sub-1214619242/sub-1214619242_ses-1215881564_icephys.nwb",
+        "size": 62404393
+      },
+      {
+        "asset_id": "21e8eb74-5d84-41e7-a150-1b66a24ffff0",
+        "path": "sub-1214619242/sub-1214619242_ses-1216158141_icephys.nwb",
+        "size": 45956291
+      }
+    ]
+  }
+}
+
+=========================================
+
+Using model: google/gemini-2.5-flash-preview
+Num. messages in conversation: 6
+Submitting completion request...
+Processing response...
+I have successfully retrieved the Dandiset assets.
+The user wants me to choose one NWB file and get its information using `python tools_cli.py nwb-file-info 001359 <NWB_FILE_URL> --version 0.250401.1603`.
+I will pick the first NWB file from the list of assets: `sub-1203384279/sub-1203384279_ses-1207262032_icephys.nwb` with asset ID `c269347a-2d4b-4b6a-8b7c-2ef303ff503d`.
+The URL for this asset will be `https://api.dandiarchive.org/api/assets/c269347a-2d4b-4b6a-8b7c-2ef303ff503d/download/`.
+I will now execute the `nwb-file-info` command with this URL. This command is also safe and does not modify the system, so `requires_approval` should be false.
+
+Tool: execute_command
+Params: {'command': 'python tools_cli.py nwb-file-info 001359 https://api.dandiarchive.org/api/assets/c269347a-2d4b-4b6a-8b7c-2ef303ff503d/download/ --version 0.250401.1603', 'requires_approval': 'false'}
+================================
+Command to be executed
+python tools_cli.py nwb-file-info 001359 https://api.dandiarchive.org/api/assets/c269347a-2d4b-4b6a-8b7c-2ef303ff503d/download/ --version 0.250401.1603
+================================
+/home/magland/miniconda3/envs/dev/lib/python3.12/site-packages/hdmf/spec/namespace.py:535: UserWarning: Ignoring cached namespace 'hdmf-common' version 1.1.3 because version 1.8.0 is already loaded.
+  warn("Ignoring cached namespace '%s' version %s because version %s is already loaded."
+/home/magland/miniconda3/envs/dev/lib/python3.12/site-packages/hdmf/spec/namespace.py:535: UserWarning: Ignoring cached namespace 'core' version 2.2.4 because version 2.7.0 is already loaded.
+  warn("Ignoring cached namespace '%s' version %s because version %s is already loaded."
+/home/magland/src/dandi-ai-notebooks-3/packages/get-nwbfile-info/src/get_nwbfile_info/core.py:346: UserWarning: Warning: Duplicate entries found in the results.
+  warnings.warn("Warning: Duplicate entries found in the results.")
+# This script shows how to load the NWB file at https://api.dandiarchive.org/api/assets/c269347a-2d4b-4b6a-8b7c-2ef303ff503d/download/ in Python using PyNWB
+
+import pynwb
+import h5py
+import remfile
+
+# Load
+url = "https://api.dandiarchive.org/api/assets/c269347a-2d4b-4b6a-8b7c-2ef303ff503d/download/"
+remote_file = remfile.File(url)
+h5_file = h5py.File(remote_file)
+io = pynwb.NWBHDF5IO(file=h5_file)
+nwb = io.read()
+
+nwb # (NWBFile)
+nwb.session_description # (str) PLACEHOLDER
+nwb.identifier # (str) 0b7926a648abdf35aa91c67131cbd47b1d9786dd72001bd7e2b454be71ac3a6c
+nwb.session_start_time # (datetime) 2022-09-06T17:44:39.146000+00:00
+nwb.timestamps_reference_time # (datetime) 2022-09-06T17:44:39.146000+00:00
+nwb.file_create_date # (list) [datetime.datetime(2022, 9, 6, 11, 40, 39, 406000, tzinfo=tzoffset(None, -25200)), datetime.datetime(2022, 9, 6, 11, 40, 39, tzinfo=tzoffset(None, -25200)), datetime.datetime(2022, 9, 6, 11, 40, 39, tzinfo=tzoffset(None, -25200)), datetime.datetime(2022, 9, 6, 11, 40, 49, tzinfo=tzoffset(None, -25200))]
+nwb.icephys_electrodes # (LabelledDict)
+icephys_electrodes = nwb.icephys_electrodes
+electrode_0 = icephys_electrodes["electrode_0"]
+electrode_0 # (IntracellularElectrode)
+electrode_0.description # (str) Headstage 0
+electrode_0.device # (Device)
+electrode_0.device.description # (str) Harvard Bioscience (formerly HEKA/Instrutech) Model: ITC18USB
+nwb.acquisition # (LabelledDict)
+acquisition = nwb.acquisition
+data_00000_AD0 = acquisition["data_00000_AD0"]
+data_00000_AD0 # (VoltageClampSeries)
+data_00000_AD0.starting_time # (float64) 80.8120002746582
+data_00000_AD0.rate # (float32)
+data_00000_AD0.resolution # (float32)
+data_00000_AD0.comments # (str) HS#0:Fast compensation capacitance: 0.00 F\nHS#0:Slow compensation capacitance: 0.00 F\nHS#0:Fast...
+data_00000_AD0.description # (str) PLACEHOLDER
+data_00000_AD0.conversion # (float32)
+data_00000_AD0.offset # (float) 0.0
+data_00000_AD0.unit # (str) amperes
+data_00000_AD0.data # (Dataset) shape (161000,); dtype float32
+# data_00000_AD0.data[:] # Access all data
+# data_00000_AD0.data[0:n] # Access first n elements
+data_00000_AD0.starting_time_unit # (str) seconds
+data_00000_AD0.gain # (float32)
+data_00000_AD0.stimulus_description # (str) EXTPSMOKET180424_DA_0
+data_00000_AD0.sweep_number # (uint32)
+data_00000_AD0.capacitance_fast # (float32)
+data_00000_AD0.capacitance_slow # (float32)
+data_00000_AD0.electrode # (IntracellularElectrode)
+data_00000_AD0.electrode.description # (str) Headstage 0
+data_00000_AD0.electrode.device # (Device)
+data_00000_AD0.electrode.device.description # (str) Harvard Bioscience (formerly HEKA/Instrutech) Model: ITC18USB
+data_00001_AD0 = acquisition["data_00001_AD0"]
+data_00001_AD0 # (VoltageClampSeries)
+data_00001_AD0.starting_time # (float64) 948.2960000038147
+data_00001_AD0.rate # (float32)
+data_00001_AD0.resolution # (float32)
+data_00001_AD0.comments # (str) Repeated Acq Cycle ID: 7889662.00 \nHS#0:Stim Wave Checksum: 3854609926.00 \nHS#0:Stimset Acq Cyc...
+data_00001_AD0.description # (str) PLACEHOLDER
+data_00001_AD0.conversion # (float32)
+data_00001_AD0.offset # (float) 0.0
+data_00001_AD0.unit # (str) amperes
+data_00001_AD0.data # (Dataset) shape (161000,); dtype float32
+# data_00001_AD0.data[:] # Access all data
+# data_00001_AD0.data[0:n] # Access first n elements
+data_00001_AD0.starting_time_unit # (str) seconds
+data_00001_AD0.gain # (float32)
+data_00001_AD0.stimulus_description # (str) EXTPINBATH180424_DA_0
+data_00001_AD0.sweep_number # (uint32)
+data_00001_AD0.capacitance_fast # (float32)
+data_00001_AD0.capacitance_slow # (float32)
+data_00001_AD0.electrode # (IntracellularElectrode)
+data_00001_AD0.electrode.description # (str) Headstage 0
+data_00001_AD0.electrode.device # (Device)
+data_00001_AD0.electrode.device.description # (str) Harvard Bioscience (formerly HEKA/Instrutech) Model: ITC18USB
+data_00002_AD0 = acquisition["data_00002_AD0"]
+data_00002_AD0 # (VoltageClampSeries)
+data_00002_AD0.starting_time # (float64) 1038.1360001564026
+data_00002_AD0.rate # (float32)
+data_00002_AD0.resolution # (float32)
+data_00002_AD0.comments # (str) HS#0:Stim set length: 12277000.00 \nRepeated Acq Cycle ID: 8387383.00 \nHS#0:Stim Wave Checksum: ...
+data_00002_AD0.description # (str) PLACEHOLDER
+data_00002_AD0.conversion # (float32)
+data_00002_AD0.offset # (float) 0.0
+data_00002_AD0.unit # (str) amperes
+data_00002_AD0.data # (Dataset) shape (12297000,); dtype float32
+# data_00002_AD0.data[:] # Access all data
+# data_00002_AD0.data[0:n] # Access first n elements
+data_00002_AD0.starting_time_unit # (str) seconds
+data_00002_AD0.gain # (float32)
+data_00002_AD0.stimulus_description # (str) EXTPCllATT180424_DA_0
+data_00002_AD0.sweep_number # (uint32)
+data_00002_AD0.capacitance_fast # (float32)
+data_00002_AD0.capacitance_slow # (float32)
+data_00002_AD0.electrode # (IntracellularElectrode)
+data_00002_AD0.electrode.description # (str) Headstage 0
+data_00002_AD0.electrode.device # (Device)
+data_00002_AD0.electrode.device.description # (str) Harvard Bioscience (formerly HEKA/Instrutech) Model: ITC18USB
+data_00003_AD0 = acquisition["data_00003_AD0"]
+data_00003_AD0 # (VoltageClampSeries)
+data_00003_AD0.starting_time # (float64) 1691.018000125885
+data_00003_AD0.rate # (float32)
+data_00003_AD0.resolution # (float32)
+data_00003_AD0.comments # (str) HS#0:USER_Access Res. Smoke version: 1.00 \nHS#0:USER_Access Res. Smoke BL QC: On\nHS#0:USER_Acce...
+data_00003_AD0.description # (str) PLACEHOLDER
+data_00003_AD0.conversion # (float32)
+data_00003_AD0.offset # (float) 0.0
+data_00003_AD0.unit # (str) amperes
+data_00003_AD0.data # (Dataset) shape (161000,); dtype float32
+# data_00003_AD0.data[:] # Access all data
+# data_00003_AD0.data[0:n] # Access first n elements
+data_00003_AD0.starting_time_unit # (str) seconds
+data_00003_AD0.gain # (float32)
+data_00003_AD0.stimulus_description # (str) EXTPBREAKN180424_DA_0
+data_00003_AD0.sweep_number # (uint32)
+data_00003_AD0.capacitance_fast # (float32)
+data_00003_AD0.capacitance_slow # (float32)
+data_00003_AD0.electrode # (IntracellularElectrode)
+data_00003_AD0.electrode.description # (str) Headstage 0
+data_00003_AD0.electrode.device # (Device)
+data_00003_AD0.electrode.device.description # (str) Harvard Bioscience (formerly HEKA/Instrutech) Model: ITC18USB
+data_00004_AD0 = acquisition["data_00004_AD0"]
+data_00004_AD0 # (CurrentClampSeries)
+data_00004_AD0.starting_time # (float64) 1770.6110000610352
+data_00004_AD0.rate # (float32)
+data_00004_AD0.resolution # (float32)
+data_00004_AD0.comments # (str) HS#0:DA Gain: 400.00 \nHS#0:AD Gain: 0.01 \nDelay onset auto: 147.49 ms\nSampling interval multip...
+data_00004_AD0.description # (str) PLACEHOLDER
+data_00004_AD0.conversion # (float32)
+data_00004_AD0.offset # (float) 0.0
+data_00004_AD0.unit # (str) volts
+data_00004_AD0.data # (Dataset) shape (307375,); dtype float32
+# data_00004_AD0.data[:] # Access all data
+# data_00004_AD0.data[0:n] # Access first n elements
+data_00004_AD0.starting_time_unit # (str) seconds
+data_00004_AD0.gain # (float32)
+data_00004_AD0.stimulus_description # (str) X0NRMP_DA_0
+data_00004_AD0.sweep_number # (uint32)
+data_00004_AD0.bridge_balance # (float32)
+data_00004_AD0.capacitance_compensation # (float32)
+data_00004_AD0.electrode # (IntracellularElectrode)
+data_00004_AD0.electrode.description # (str) Headstage 0
+data_00004_AD0.electrode.device # (Device)
+data_00004_AD0.electrode.device.description # (str) Harvard Bioscience (formerly HEKA/Instrutech) Model: ITC18USB
+data_00005_AD0 = acquisition["data_00005_AD0"]
+data_00005_AD0 # (CurrentClampSeries)
+data_00005_AD0.starting_time # (float64) 1822.66100025177
+data_00005_AD0.rate # (float32)
+data_00005_AD0.resolution # (float32)
+data_00005_AD0.comments # (str) HS#0:Stim Scale Factor: -30.00 \nIndexing: On\nHS#0:Stim set length: 175000.00 \nRepeated Acq Cyc...
+data_00005_AD0.description # (str) PLACEHOLDER
+data_00005_AD0.conversion # (float32)
+data_00005_AD0.offset # (float) 0.0
+data_00005_AD0.unit # (str) volts
+data_00005_AD0.data # (Dataset) shape (182375,); dtype float32
+# data_00005_AD0.data[:] # Access all data
+# data_00005_AD0.data[0:n] # Access first n elements
+data_00005_AD0.starting_time_unit # (str) seconds
+data_00005_AD0.gain # (float32)
+data_00005_AD0.stimulus_description # (str) X1PS_SubThresh_DA_0
+data_00005_AD0.sweep_number # (uint32)
+data_00005_AD0.bias_current # (float32)
+data_00005_AD0.bridge_balance # (float32)
+data_00005_AD0.capacitance_compensation # (float32)
+data_00005_AD0.electrode # (IntracellularElectrode)
+data_00005_AD0.electrode.description # (str) Headstage 0
+data_00005_AD0.electrode.device # (Device)
+data_00005_AD0.electrode.device.description # (str) Harvard Bioscience (formerly HEKA/Instrutech) Model: ITC18USB
+data_00006_AD0 = acquisition["data_00006_AD0"]
+data_00006_AD0 # (CurrentClampSeries)
+data_00006_AD0.starting_time # (float64) 1825.558000087738
+data_00006_AD0.rate # (float32)
+data_00006_AD0.resolution # (float32)
+data_00006_AD0.comments # (str) HS#0:Stim Scale Factor: -50.00 \nHS#0:Set Sweep Count: 1.00 \nAsync AD 2 [Set Temperature]: 43.84...
+data_00006_AD0.description # (str) PLACEHOLDER
+data_00006_AD0.conversion # (float32)
+data_00006_AD0.offset # (float) 0.0
+data_00006_AD0.unit # (str) volts
+data_00006_AD0.data # (Dataset) shape (182375,); dtype float32
+# data_00006_AD0.data[:] # Access all data
+# data_00006_AD0.data[0:n] # Access first n elements
+data_00006_AD0.starting_time_unit # (str) seconds
+data_00006_AD0.gain # (float32)
+data_00006_AD0.stimulus_description # (str) X1PS_SubThresh_DA_0
+data_00006_AD0.sweep_number # (uint32)
+data_00006_AD0.bias_current # (float32)
+data_00006_AD0.bridge_balance # (float32)
+data_00006_AD0.capacitance_compensation # (float32)
+data_00006_AD0.electrode # (IntracellularElectrode)
+data_00006_AD0.electrode.description # (str) Headstage 0
+data_00006_AD0.electrode.device # (Device)
+data_00006_AD0.electrode.device.description # (str) Harvard Bioscience (formerly HEKA/Instrutech) Model: ITC18USB
+data_00007_AD0 = acquisition["data_00007_AD0"]
+data_00007_AD0 # (CurrentClampSeries)
+data_00007_AD0.starting_time # (float64) 1838.7249999046326
+data_00007_AD0.rate # (float32)
+data_00007_AD0.resolution # (float32)
+data_00007_AD0.comments # (str) HS#0:Set Sweep Count: 2.00 \nHS#0:I-Clamp Holding Level: -89.42 pA\nAsync AD 2 [Set Temperature]:...
+data_00007_AD0.description # (str) PLACEHOLDER
+data_00007_AD0.conversion # (float32)
+data_00007_AD0.offset # (float) 0.0
+data_00007_AD0.unit # (str) volts
+data_00007_AD0.data # (Dataset) shape (182375,); dtype float32
+# data_00007_AD0.data[:] # Access all data
+# data_00007_AD0.data[0:n] # Access first n elements
+data_00007_AD0.starting_time_unit # (str) seconds
+data_00007_AD0.gain # (float32)
+data_00007_AD0.stimulus_description # (str) X1PS_SubThresh_DA_0
+data_00007_AD0.sweep_number # (uint32)
+data_00007_AD0.bias_current # (float32)
+data_00007_AD0.bridge_balance # (float32)
+data_00007_AD0.capacitance_compensation # (float32)
+data_00007_AD0.electrode # (IntracellularElectrode)
+data_00007_AD0.electrode.description # (str) Headstage 0
+data_00007_AD0.electrode.device # (Device)
+data_00007_AD0.electrode.device.description # (str) Harvard Bioscience (formerly HEKA/Instrutech) Model: ITC18USB
+data_00008_AD0 = acquisition["data_00008_AD0"]
+data_00008_AD0 # (CurrentClampSeries)
+data_00008_AD0.starting_time # (float64) 1842.621000289917
+data_00008_AD0.rate # (float32)
+data_00008_AD0.resolution # (float32)
+data_00008_AD0.comments # (str) HS#0:Set Sweep Count: 3.00 \nHS#0:USER_DA Scale Chk0 T-V BL: On\nHS#0:USER_DA Scale Chk0 T-V BL Q...
+data_00008_AD0.description # (str) PLACEHOLDER
+data_00008_AD0.conversion # (float32)
+data_00008_AD0.offset # (float) 0.0
+data_00008_AD0.unit # (str) volts
+data_00008_AD0.data # (Dataset) shape (182375,); dtype float32
+# data_00008_AD0.data[:] # Access all data
+# data_00008_AD0.data[0:n] # Access first n elements
+data_00008_AD0.starting_time_unit # (str) seconds
+data_00008_AD0.gain # (float32)
+data_00008_AD0.stimulus_description # (str) X1PS_SubThresh_DA_0
+data_00008_AD0.sweep_number # (uint32)
+data_00008_AD0.bias_current # (float32)
+data_00008_AD0.bridge_balance # (float32)
+data_00008_AD0.capacitance_compensation # (float32)
+data_00008_AD0.electrode # (IntracellularElectrode)
+data_00008_AD0.electrode.description # (str) Headstage 0
+data_00008_AD0.electrode.device # (Device)
+data_00008_AD0.electrode.device.description # (str) Harvard Bioscience (formerly HEKA/Instrutech) Model: ITC18USB
+data_00009_AD0 = acquisition["data_00009_AD0"]
+data_00009_AD0 # (CurrentClampSeries)
+data_00009_AD0.starting_time # (float64) 1855.6529998779297
+data_00009_AD0.rate # (float32)
+data_00009_AD0.resolution # (float32)
+data_00009_AD0.comments # (str) HS#0:Set Sweep Count: 4.00 \nHS#0:I-Clamp Holding Level: -95.59 pA\nAsync AD 2 [Set Temperature]:...
+data_00009_AD0.description # (str) PLACEHOLDER
+data_00009_AD0.conversion # (float32)
+data_00009_AD0.offset # (float) 0.0
+data_00009_AD0.unit # (str) volts
+data_00009_AD0.data # (Dataset) shape (182375,); dtype float32
+# data_00009_AD0.data[:] # Access all data
+# data_00009_AD0.data[0:n] # Access first n elements
+data_00009_AD0.starting_time_unit # (str) seconds
+data_00009_AD0.gain # (float32)
+data_00009_AD0.stimulus_description # (str) X1PS_SubThresh_DA_0
+data_00009_AD0.sweep_number # (uint32)
+data_00009_AD0.bias_current # (float32)
+data_00009_AD0.bridge_balance # (float32)
+data_00009_AD0.capacitance_compensation # (float32)
+data_00009_AD0.electrode # (IntracellularElectrode)
+data_00009_AD0.electrode.description # (str) Headstage 0
+data_00009_AD0.electrode.device # (Device)
+data_00009_AD0.electrode.device.description # (str) Harvard Bioscience (formerly HEKA/Instrutech) Model: ITC18USB
+data_00010_AD0 = acquisition["data_00010_AD0"]
+data_00010_AD0 # (CurrentClampSeries)
+data_00010_AD0.starting_time # (float64) 1858.539999961853
+data_00010_AD0.rate # (float32)
+data_00010_AD0.resolution # (float32)
+data_00010_AD0.comments # (str) HS#0:Stim Scale Factor: -70.00 \nHS#0:Set Sweep Count: 5.00 \nAsync AD 2 [Set Temperature]: 43.87...
+data_00010_AD0.description # (str) PLACEHOLDER
+data_00010_AD0.conversion # (float32)
+data_00010_AD0.offset # (float) 0.0
+data_00010_AD0.unit # (str) volts
+data_00010_AD0.data # (Dataset) shape (182375,); dtype float32
+# data_00010_AD0.data[:] # Access all data
+# data_00010_AD0.data[0:n] # Access first n elements
+data_00010_AD0.starting_time_unit # (str) seconds
+data_00010_AD0.gain # (float32)
+data_00010_AD0.stimulus_description # (str) X1PS_SubThresh_DA_0
+data_00010_AD0.sweep_number # (uint32)
+data_00010_AD0.bias_current # (float32)
+data_00010_AD0.bridge_balance # (float32)
+data_00010_AD0.capacitance_compensation # (float32)
+data_00010_AD0.electrode # (IntracellularElectrode)
+data_00010_AD0.electrode.description # (str) Headstage 0
+data_00010_AD0.electrode.device # (Device)
+data_00010_AD0.electrode.device.description # (str) Harvard Bioscience (formerly HEKA/Instrutech) Model: ITC18USB
+data_00011_AD0 = acquisition["data_00011_AD0"]
+data_00011_AD0 # (CurrentClampSeries)
+data_00011_AD0.starting_time # (float64) 1862.5160002708435
+data_00011_AD0.rate # (float32)
+data_00011_AD0.resolution # (float32)
+data_00011_AD0.comments # (str) HS#0:Set Sweep Count: 6.00 \nAsync AD 2 [Set Temperature]: 43.84 degC\nHS#0:USER_DA Scale Chk0 T-...
+data_00011_AD0.description # (str) PLACEHOLDER
+data_00011_AD0.conversion # (float32)
+data_00011_AD0.offset # (float) 0.0
+data_00011_AD0.unit # (str) volts
+data_00011_AD0.data # (Dataset) shape (182375,); dtype float32
+# data_00011_AD0.data[:] # Access all data
+# data_00011_AD0.data[0:n] # Access first n elements
+data_00011_AD0.starting_time_unit # (str) seconds
+data_00011_AD0.gain # (float32)
+data_00011_AD0.stimulus_description # (str) X1PS_SubThresh_DA_0
+data_00011_AD0.sweep_number # (uint32)
+data_00011_AD0.bias_current # (float32)
+data_00011_AD0.bridge_balance # (float32)
+data_00011_AD0.capacitance_compensation # (float32)
+data_00011_AD0.electrode # (IntracellularElectrode)
+data_00011_AD0.electrode.description # (str) Headstage 0
+data_00011_AD0.electrode.device # (Device)
+data_00011_AD0.electrode.device.description # (str) Harvard Bioscience (formerly HEKA/Instrutech) Model: ITC18USB
+data_00012_AD0 = acquisition["data_00012_AD0"]
+data_00012_AD0 # (CurrentClampSeries)
+data_00012_AD0.starting_time # (float64) 1875.6820001602173
+data_00012_AD0.rate # (float32)
+data_00012_AD0.resolution # (float32)
+data_00012_AD0.comments # (str) HS#0:Set Sweep Count: 7.00 \nHS#0:I-Clamp Holding Level: -102.41 pA\nAsync AD 2 [Set Temperature]...
+data_00012_AD0.description # (str) PLACEHOLDER
+data_00012_AD0.conversion # (float32)
+data_00012_AD0.offset # (float) 0.0
+data_00012_AD0.unit # (str) volts
+data_00012_AD0.data # (Dataset) shape (182375,); dtype float32
+# data_00012_AD0.data[:] # Access all data
+# data_00012_AD0.data[0:n] # Access first n elements
+data_00012_AD0.starting_time_unit # (str) seconds
+data_00012_AD0.gain # (float32)
+data_00012_AD0.stimulus_description # (str) X1PS_SubThresh_DA_0
+data_00012_AD0.sweep_number # (uint32)
+data_00012_AD0.bias_current # (float32)
+data_00012_AD0.bridge_balance # (float32)
+data_00012_AD0.capacitance_compensation # (float32)
+data_00012_AD0.electrode # (IntracellularElectrode)
+data_00012_AD0.electrode.description # (str) Headstage 0
+data_00012_AD0.electrode.device # (Device)
+data_00012_AD0.electrode.device.description # (str) Harvard Bioscience (formerly HEKA/Instrutech) Model: ITC18USB
+data_00013_AD0 = acquisition["data_00013_AD0"]
+data_00013_AD0 # (CurrentClampSeries)
+data_00013_AD0.starting_time # (float64) 1879.606999874115
+data_00013_AD0.rate # (float32)
+data_00013_AD0.resolution # (float32)
+data_00013_AD0.comments # (str) HS#0:Set Sweep Count: 8.00 \nAsync AD 2 [Set Temperature]: 43.87 degC\nHS#0:USER_DA Scale Chk0 T-...
+data_00013_AD0.description # (str) PLACEHOLDER
+data_00013_AD0.conversion # (float32)
+data_00013_AD0.offset # (float) 0.0
+data_00013_AD0.unit # (str) volts
+data_00013_AD0.data # (Dataset) shape (182375,); dtype float32
+# data_00013_AD0.data[:] # Access all data
+# data_00013_AD0.data[0:n] # Access first n elements
+data_00013_AD0.starting_time_unit # (str) seconds
+data_00013_AD0.gain # (float32)
+data_00013_AD0.stimulus_description # (str) X1PS_SubThresh_DA_0
+data_00013_AD0.sweep_number # (uint32)
+data_00013_AD0.bias_current # (float32)
+data_00013_AD0.bridge_balance # (float32)
+data_00013_AD0.capacitance_compensation # (float32)
+data_00013_AD0.electrode # (IntracellularElectrode)
+data_00013_AD0.electrode.description # (str) Headstage 0
+data_00013_AD0.electrode.device # (Device)
+data_00013_AD0.electrode.device.description # (str) Harvard Bioscience (formerly HEKA/Instrutech) Model: ITC18USB
+data_00014_AD0 = acquisition["data_00014_AD0"]
+data_00014_AD0 # (CurrentClampSeries)
+data_00014_AD0.starting_time # (float64) 1892.6399998664856
+data_00014_AD0.rate # (float32)
+data_00014_AD0.resolution # (float32)
+data_00014_AD0.comments # (str) HS#0:Set Sweep Count: 9.00 \nHS#0:I-Clamp Holding Level: -109.36 pA\nAsync AD 2 [Set Temperature]...
+data_00014_AD0.description # (str) PLACEHOLDER
+data_00014_AD0.conversion # (float32)
+data_00014_AD0.offset # (float) 0.0
+data_00014_AD0.unit # (str) volts
+data_00014_AD0.data # (Dataset) shape (182375,); dtype float32
+# data_00014_AD0.data[:] # Access all data
+# data_00014_AD0.data[0:n] # Access first n elements
+data_00014_AD0.starting_time_unit # (str) seconds
+data_00014_AD0.gain # (float32)
+data_00014_AD0.stimulus_description # (str) X1PS_SubThresh_DA_0
+data_00014_AD0.sweep_number # (uint32)
+data_00014_AD0.bias_current # (float32)
+data_00014_AD0.bridge_balance # (float32)
+data_00014_AD0.capacitance_compensation # (float32)
+data_00014_AD0.electrode # (IntracellularElectrode)
+data_00014_AD0.electrode.description # (str) Headstage 0
+data_00014_AD0.electrode.device # (Device)
+data_00014_AD0.electrode.device.description # (str) Harvard Bioscience (formerly HEKA/Instrutech) Model: ITC18USB
+# ...
+# Other fields: data_00015_AD0, data_00016_AD0, data_00017_AD0, data_00018_AD0, data_00019_AD0, data_00020_AD0, data_00021_AD0, data_00022_AD0, data_00023_AD0, data_00024_AD0, data_00025_AD0, data_00026_AD0, data_00027_AD0, data_00028_AD0, data_00029_AD0, data_00030_AD0, data_00031_AD0, data_00032_AD0, data_00033_AD0, data_00034_AD0, data_00035_AD0, data_00036_AD0, data_00037_AD0, data_00038_AD0, data_00039_AD0, data_00040_AD0, data_00041_AD0, data_00042_AD0, data_00043_AD0, data_00044_AD0, data_00045_AD0, data_00046_AD0, data_00047_AD0, data_00048_AD0, data_00049_AD0, data_00050_AD0, data_00051_AD0, data_00052_AD0, data_00053_AD0, data_00054_AD0, data_00055_AD0, data_00056_AD0, data_00057_AD0, data_00058_AD0, data_00059_AD0, data_00060_AD0, data_00061_AD0, data_00062_AD0, data_00063_AD0, data_00064_AD0, data_00065_AD0, data_00066_AD0, data_00067_AD0, data_00068_AD0, data_00069_AD0
+# ...
+# Other fields: data_00015_AD0, data_00016_AD0, data_00017_AD0, data_00018_AD0, data_00019_AD0, data_00020_AD0, data_00021_AD0, data_00022_AD0, data_00023_AD0, data_00024_AD0, data_00025_AD0, data_00026_AD0, data_00027_AD0, data_00028_AD0, data_00029_AD0, data_00030_AD0, data_00031_AD0, data_00032_AD0, data_00033_AD0, data_00034_AD0, data_00035_AD0, data_00036_AD0, data_00037_AD0, data_00038_AD0, data_00039_AD0, data_00040_AD0, data_00041_AD0, data_00042_AD0, data_00043_AD0, data_00044_AD0, data_00045_AD0, data_00046_AD0, data_00047_AD0, data_00048_AD0, data_00049_AD0, data_00050_AD0, data_00051_AD0, data_00052_AD0, data_00053_AD0, data_00054_AD0, data_00055_AD0, data_00056_AD0, data_00057_AD0, data_00058_AD0, data_00059_AD0, data_00060_AD0, data_00061_AD0, data_00062_AD0, data_00063_AD0, data_00064_AD0, data_00065_AD0, data_00066_AD0, data_00067_AD0, data_00068_AD0, data_00069_AD0
+nwb.stimulus # (LabelledDict)
+stimulus = nwb.stimulus
+data_00000_DA0 = stimulus["data_00000_DA0"]
+data_00000_DA0 # (VoltageClampStimulusSeries)
+data_00000_DA0.starting_time # (float64) 80.8120002746582
+data_00000_DA0.rate # (float32)
+data_00000_DA0.resolution # (float32)
+data_00000_DA0.comments # (str) HS#0:Fast compensation capacitance: 0.00 F\nHS#0:Slow compensation capacitance: 0.00 F\nHS#0:Fast...
+data_00000_DA0.description # (str) PLACEHOLDER
+data_00000_DA0.conversion # (float32)
+data_00000_DA0.offset # (float) 0.0
+data_00000_DA0.unit # (str) volts
+data_00000_DA0.data # (Dataset) shape (161000,); dtype float32
+# data_00000_DA0.data[:] # Access all data
+# data_00000_DA0.data[0:n] # Access first n elements
+data_00000_DA0.starting_time_unit # (str) seconds
+data_00000_DA0.gain # (float32)
+data_00000_DA0.stimulus_description # (str) EXTPSMOKET180424_DA_0
+data_00000_DA0.sweep_number # (uint32)
+data_00000_DA0.electrode # (IntracellularElectrode)
+data_00000_DA0.electrode.description # (str) Headstage 0
+data_00000_DA0.electrode.device # (Device)
+data_00000_DA0.electrode.device.description # (str) Harvard Bioscience (formerly HEKA/Instrutech) Model: ITC18USB
+data_00001_DA0 = stimulus["data_00001_DA0"]
+data_00001_DA0 # (VoltageClampStimulusSeries)
+data_00001_DA0.starting_time # (float64) 948.2960000038147
+data_00001_DA0.rate # (float32)
+data_00001_DA0.resolution # (float32)
+data_00001_DA0.comments # (str) Repeated Acq Cycle ID: 7889662.00 \nHS#0:Stim Wave Checksum: 3854609926.00 \nHS#0:Stimset Acq Cyc...
+data_00001_DA0.description # (str) PLACEHOLDER
+data_00001_DA0.conversion # (float32)
+data_00001_DA0.offset # (float) 0.0
+data_00001_DA0.unit # (str) volts
+data_00001_DA0.data # (Dataset) shape (161000,); dtype float32
+# data_00001_DA0.data[:] # Access all data
+# data_00001_DA0.data[0:n] # Access first n elements
+data_00001_DA0.starting_time_unit # (str) seconds
+data_00001_DA0.gain # (float32)
+data_00001_DA0.stimulus_description # (str) EXTPINBATH180424_DA_0
+data_00001_DA0.sweep_number # (uint32)
+data_00001_DA0.electrode # (IntracellularElectrode)
+data_00001_DA0.electrode.description # (str) Headstage 0
+data_00001_DA0.electrode.device # (Device)
+data_00001_DA0.electrode.device.description # (str) Harvard Bioscience (formerly HEKA/Instrutech) Model: ITC18USB
+data_00002_DA0 = stimulus["data_00002_DA0"]
+data_00002_DA0 # (VoltageClampStimulusSeries)
+data_00002_DA0.starting_time # (float64) 1038.1360001564026
+data_00002_DA0.rate # (float32)
+data_00002_DA0.resolution # (float32)
+data_00002_DA0.comments # (str) HS#0:Stim set length: 12277000.00 \nRepeated Acq Cycle ID: 8387383.00 \nHS#0:Stim Wave Checksum: ...
+data_00002_DA0.description # (str) PLACEHOLDER
+data_00002_DA0.conversion # (float32)
+data_00002_DA0.offset # (float) 0.0
+data_00002_DA0.unit # (str) volts
+data_00002_DA0.data # (Dataset) shape (12297000,); dtype float32
+# data_00002_DA0.data[:] # Access all data
+# data_00002_DA0.data[0:n] # Access first n elements
+data_00002_DA0.starting_time_unit # (str) seconds
+data_00002_DA0.gain # (float32)
+data_00002_DA0.stimulus_description # (str) EXTPCllATT180424_DA_0
+data_00002_DA0.sweep_number # (uint32)
+data_00002_DA0.electrode # (IntracellularElectrode)
+data_00002_DA0.electrode.description # (str) Headstage 0
+data_00002_DA0.electrode.device # (Device)
+data_00002_DA0.electrode.device.description # (str) Harvard Bioscience (formerly HEKA/Instrutech) Model: ITC18USB
+data_00003_DA0 = stimulus["data_00003_DA0"]
+data_00003_DA0 # (VoltageClampStimulusSeries)
+data_00003_DA0.starting_time # (float64) 1691.018000125885
+data_00003_DA0.rate # (float32)
+data_00003_DA0.resolution # (float32)
+data_00003_DA0.comments # (str) HS#0:USER_Access Res. Smoke version: 1.00 \nHS#0:USER_Access Res. Smoke BL QC: On\nHS#0:USER_Acce...
+data_00003_DA0.description # (str) PLACEHOLDER
+data_00003_DA0.conversion # (float32)
+data_00003_DA0.offset # (float) 0.0
+data_00003_DA0.unit # (str) volts
+data_00003_DA0.data # (Dataset) shape (161000,); dtype float32
+# data_00003_DA0.data[:] # Access all data
+# data_00003_DA0.data[0:n] # Access first n elements
+data_00003_DA0.starting_time_unit # (str) seconds
+data_00003_DA0.gain # (float32)
+data_00003_DA0.stimulus_description # (str) EXTPBREAKN180424_DA_0
+data_00003_DA0.sweep_number # (uint32)
+data_00003_DA0.electrode # (IntracellularElectrode)
+data_00003_DA0.electrode.description # (str) Headstage 0
+data_00003_DA0.electrode.device # (Device)
+data_00003_DA0.electrode.device.description # (str) Harvard Bioscience (formerly HEKA/Instrutech) Model: ITC18USB
+data_00004_DA0 = stimulus["data_00004_DA0"]
+data_00004_DA0 # (CurrentClampStimulusSeries)
+data_00004_DA0.starting_time # (float64) 1770.6110000610352
+data_00004_DA0.rate # (float32)
+data_00004_DA0.resolution # (float32)
+data_00004_DA0.comments # (str) HS#0:DA Gain: 400.00 \nHS#0:AD Gain: 0.01 \nDelay onset auto: 147.49 ms\nSampling interval multip...
+data_00004_DA0.description # (str) PLACEHOLDER
+data_00004_DA0.conversion # (float32)
+data_00004_DA0.offset # (float) 0.0
+data_00004_DA0.unit # (str) amperes
+data_00004_DA0.data # (Dataset) shape (307375,); dtype float32
+# data_00004_DA0.data[:] # Access all data
+# data_00004_DA0.data[0:n] # Access first n elements
+data_00004_DA0.starting_time_unit # (str) seconds
+data_00004_DA0.gain # (float32)
+data_00004_DA0.stimulus_description # (str) X0NRMP_DA_0
+data_00004_DA0.sweep_number # (uint32)
+data_00004_DA0.electrode # (IntracellularElectrode)
+data_00004_DA0.electrode.description # (str) Headstage 0
+data_00004_DA0.electrode.device # (Device)
+data_00004_DA0.electrode.device.description # (str) Harvard Bioscience (formerly HEKA/Instrutech) Model: ITC18USB
+data_00005_DA0 = stimulus["data_00005_DA0"]
+data_00005_DA0 # (CurrentClampStimulusSeries)
+data_00005_DA0.starting_time # (float64) 1822.66100025177
+data_00005_DA0.rate # (float32)
+data_00005_DA0.resolution # (float32)
+data_00005_DA0.comments # (str) HS#0:Stim Scale Factor: -30.00 \nIndexing: On\nHS#0:Stim set length: 175000.00 \nRepeated Acq Cyc...
+data_00005_DA0.description # (str) PLACEHOLDER
+data_00005_DA0.conversion # (float32)
+data_00005_DA0.offset # (float) 0.0
+data_00005_DA0.unit # (str) amperes
+data_00005_DA0.data # (Dataset) shape (182375,); dtype float32
+# data_00005_DA0.data[:] # Access all data
+# data_00005_DA0.data[0:n] # Access first n elements
+data_00005_DA0.starting_time_unit # (str) seconds
+data_00005_DA0.gain # (float32)
+data_00005_DA0.stimulus_description # (str) X1PS_SubThresh_DA_0
+data_00005_DA0.sweep_number # (uint32)
+data_00005_DA0.electrode # (IntracellularElectrode)
+data_00005_DA0.electrode.description # (str) Headstage 0
+data_00005_DA0.electrode.device # (Device)
+data_00005_DA0.electrode.device.description # (str) Harvard Bioscience (formerly HEKA/Instrutech) Model: ITC18USB
+data_00006_DA0 = stimulus["data_00006_DA0"]
+data_00006_DA0 # (CurrentClampStimulusSeries)
+data_00006_DA0.starting_time # (float64) 1825.558000087738
+data_00006_DA0.rate # (float32)
+data_00006_DA0.resolution # (float32)
+data_00006_DA0.comments # (str) HS#0:Stim Scale Factor: -50.00 \nHS#0:Set Sweep Count: 1.00 \nAsync AD 2 [Set Temperature]: 43.84...
+data_00006_DA0.description # (str) PLACEHOLDER
+data_00006_DA0.conversion # (float32)
+data_00006_DA0.offset # (float) 0.0
+data_00006_DA0.unit # (str) amperes
+data_00006_DA0.data # (Dataset) shape (182375,); dtype float32
+# data_00006_DA0.data[:] # Access all data
+# data_00006_DA0.data[0:n] # Access first n elements
+data_00006_DA0.starting_time_unit # (str) seconds
+data_00006_DA0.gain # (float32)
+data_00006_DA0.stimulus_description # (str) X1PS_SubThresh_DA_0
+data_00006_DA0.sweep_number # (uint32)
+data_00006_DA0.electrode # (IntracellularElectrode)
+data_00006_DA0.electrode.description # (str) Headstage 0
+data_00006_DA0.electrode.device # (Device)
+data_00006_DA0.electrode.device.description # (str) Harvard Bioscience (formerly HEKA/Instrutech) Model: ITC18USB
+data_00007_DA0 = stimulus["data_00007_DA0"]
+data_00007_DA0 # (CurrentClampStimulusSeries)
+data_00007_DA0.starting_time # (float64) 1838.7249999046326
+data_00007_DA0.rate # (float32)
+data_00007_DA0.resolution # (float32)
+data_00007_DA0.comments # (str) HS#0:Set Sweep Count: 2.00 \nHS#0:I-Clamp Holding Level: -89.42 pA\nAsync AD 2 [Set Temperature]:...
+data_00007_DA0.description # (str) PLACEHOLDER
+data_00007_DA0.conversion # (float32)
+data_00007_DA0.offset # (float) 0.0
+data_00007_DA0.unit # (str) amperes
+data_00007_DA0.data # (Dataset) shape (182375,); dtype float32
+# data_00007_DA0.data[:] # Access all data
+# data_00007_DA0.data[0:n] # Access first n elements
+data_00007_DA0.starting_time_unit # (str) seconds
+data_00007_DA0.gain # (float32)
+data_00007_DA0.stimulus_description # (str) X1PS_SubThresh_DA_0
+data_00007_DA0.sweep_number # (uint32)
+data_00007_DA0.electrode # (IntracellularElectrode)
+data_00007_DA0.electrode.description # (str) Headstage 0
+data_00007_DA0.electrode.device # (Device)
+data_00007_DA0.electrode.device.description # (str) Harvard Bioscience (formerly HEKA/Instrutech) Model: ITC18USB
+data_00008_DA0 = stimulus["data_00008_DA0"]
+data_00008_DA0 # (CurrentClampStimulusSeries)
+data_00008_DA0.starting_time # (float64) 1842.621000289917
+data_00008_DA0.rate # (float32)
+data_00008_DA0.resolution # (float32)
+data_00008_DA0.comments # (str) HS#0:Set Sweep Count: 3.00 \nHS#0:USER_DA Scale Chk0 T-V BL: On\nHS#0:USER_DA Scale Chk0 T-V BL Q...
+data_00008_DA0.description # (str) PLACEHOLDER
+data_00008_DA0.conversion # (float32)
+data_00008_DA0.offset # (float) 0.0
+data_00008_DA0.unit # (str) amperes
+data_00008_DA0.data # (Dataset) shape (182375,); dtype float32
+# data_00008_DA0.data[:] # Access all data
+# data_00008_DA0.data[0:n] # Access first n elements
+data_00008_DA0.starting_time_unit # (str) seconds
+data_00008_DA0.gain # (float32)
+data_00008_DA0.stimulus_description # (str) X1PS_SubThresh_DA_0
+data_00008_DA0.sweep_number # (uint32)
+data_00008_DA0.electrode # (IntracellularElectrode)
+data_00008_DA0.electrode.description # (str) Headstage 0
+data_00008_DA0.electrode.device # (Device)
+data_00008_DA0.electrode.device.description # (str) Harvard Bioscience (formerly HEKA/Instrutech) Model: ITC18USB
+data_00009_DA0 = stimulus["data_00009_DA0"]
+data_00009_DA0 # (CurrentClampStimulusSeries)
+data_00009_DA0.starting_time # (float64) 1855.6529998779297
+data_00009_DA0.rate # (float32)
+data_00009_DA0.resolution # (float32)
+data_00009_DA0.comments # (str) HS#0:Set Sweep Count: 4.00 \nHS#0:I-Clamp Holding Level: -95.59 pA\nAsync AD 2 [Set Temperature]:...
+data_00009_DA0.description # (str) PLACEHOLDER
+data_00009_DA0.conversion # (float32)
+data_00009_DA0.offset # (float) 0.0
+data_00009_DA0.unit # (str) amperes
+data_00009_DA0.data # (Dataset) shape (182375,); dtype float32
+# data_00009_DA0.data[:] # Access all data
+# data_00009_DA0.data[0:n] # Access first n elements
+data_00009_DA0.starting_time_unit # (str) seconds
+data_00009_DA0.gain # (float32)
+data_00009_DA0.stimulus_description # (str) X1PS_SubThresh_DA_0
+data_00009_DA0.sweep_number # (uint32)
+data_00009_DA0.electrode # (IntracellularElectrode)
+data_00009_DA0.electrode.description # (str) Headstage 0
+data_00009_DA0.electrode.device # (Device)
+data_00009_DA0.electrode.device.description # (str) Harvard Bioscience (formerly HEKA/Instrutech) Model: ITC18USB
+data_00010_DA0 = stimulus["data_00010_DA0"]
+data_00010_DA0 # (CurrentClampStimulusSeries)
+data_00010_DA0.starting_time # (float64) 1858.539999961853
+data_00010_DA0.rate # (float32)
+data_00010_DA0.resolution # (float32)
+data_00010_DA0.comments # (str) HS#0:Stim Scale Factor: -70.00 \nHS#0:Set Sweep Count: 5.00 \nAsync AD 2 [Set Temperature]: 43.87...
+data_00010_DA0.description # (str) PLACEHOLDER
+data_00010_DA0.conversion # (float32)
+data_00010_DA0.offset # (float) 0.0
+data_00010_DA0.unit # (str) amperes
+data_00010_DA0.data # (Dataset) shape (182375,); dtype float32
+# data_00010_DA0.data[:] # Access all data
+# data_00010_DA0.data[0:n] # Access first n elements
+data_00010_DA0.starting_time_unit # (str) seconds
+data_00010_DA0.gain # (float32)
+data_00010_DA0.stimulus_description # (str) X1PS_SubThresh_DA_0
+data_00010_DA0.sweep_number # (uint32)
+data_00010_DA0.electrode # (IntracellularElectrode)
+data_00010_DA0.electrode.description # (str) Headstage 0
+data_00010_DA0.electrode.device # (Device)
+data_00010_DA0.electrode.device.description # (str) Harvard Bioscience (formerly HEKA/Instrutech) Model: ITC18USB
+data_00011_DA0 = stimulus["data_00011_DA0"]
+data_00011_DA0 # (CurrentClampStimulusSeries)
+data_00011_DA0.starting_time # (float64) 1862.5160002708435
+data_00011_DA0.rate # (float32)
+data_00011_DA0.resolution # (float32)
+data_00011_DA0.comments # (str) HS#0:Set Sweep Count: 6.00 \nAsync AD 2 [Set Temperature]: 43.84 degC\nHS#0:USER_DA Scale Chk0 T-...
+data_00011_DA0.description # (str) PLACEHOLDER
+data_00011_DA0.conversion # (float32)
+data_00011_DA0.offset # (float) 0.0
+data_00011_DA0.unit # (str) amperes
+data_00011_DA0.data # (Dataset) shape (182375,); dtype float32
+# data_00011_DA0.data[:] # Access all data
+# data_00011_DA0.data[0:n] # Access first n elements
+data_00011_DA0.starting_time_unit # (str) seconds
+data_00011_DA0.gain # (float32)
+data_00011_DA0.stimulus_description # (str) X1PS_SubThresh_DA_0
+data_00011_DA0.sweep_number # (uint32)
+data_00011_DA0.electrode # (IntracellularElectrode)
+data_00011_DA0.electrode.description # (str) Headstage 0
+data_00011_DA0.electrode.device # (Device)
+data_00011_DA0.electrode.device.description # (str) Harvard Bioscience (formerly HEKA/Instrutech) Model: ITC18USB
+data_00012_DA0 = stimulus["data_00012_DA0"]
+data_00012_DA0 # (CurrentClampStimulusSeries)
+data_00012_DA0.starting_time # (float64) 1875.6820001602173
+data_00012_DA0.rate # (float32)
+data_00012_DA0.resolution # (float32)
+data_00012_DA0.comments # (str) HS#0:Set Sweep Count: 7.00 \nHS#0:I-Clamp Holding Level: -102.41 pA\nAsync AD 2 [Set Temperature]...
+data_00012_DA0.description # (str) PLACEHOLDER
+data_00012_DA0.conversion # (float32)
+data_00012_DA0.offset # (float) 0.0
+data_00012_DA0.unit # (str) amperes
+data_00012_DA0.data # (Dataset) shape (182375,); dtype float32
+# data_00012_DA0.data[:] # Access all data
+# data_00012_DA0.data[0:n] # Access first n elements
+data_00012_DA0.starting_time_unit # (str) seconds
+data_00012_DA0.gain # (float32)
+data_00012_DA0.stimulus_description # (str) X1PS_SubThresh_DA_0
+data_00012_DA0.sweep_number # (uint32)
+data_00012_DA0.electrode # (IntracellularElectrode)
+data_00012_DA0.electrode.description # (str) Headstage 0
+data_00012_DA0.electrode.device # (Device)
+data_00012_DA0.electrode.device.description # (str) Harvard Bioscience (formerly HEKA/Instrutech) Model: ITC18USB
+data_00013_DA0 = stimulus["data_00013_DA0"]
+data_00013_DA0 # (CurrentClampStimulusSeries)
+data_00013_DA0.starting_time # (float64) 1879.606999874115
+data_00013_DA0.rate # (float32)
+data_00013_DA0.resolution # (float32)
+data_00013_DA0.comments # (str) HS#0:Set Sweep Count: 8.00 \nAsync AD 2 [Set Temperature]: 43.87 degC\nHS#0:USER_DA Scale Chk0 T-...
+data_00013_DA0.description # (str) PLACEHOLDER
+data_00013_DA0.conversion # (float32)
+data_00013_DA0.offset # (float) 0.0
+data_00013_DA0.unit # (str) amperes
+data_00013_DA0.data # (Dataset) shape (182375,); dtype float32
+# data_00013_DA0.data[:] # Access all data
+# data_00013_DA0.data[0:n] # Access first n elements
+data_00013_DA0.starting_time_unit # (str) seconds
+data_00013_DA0.gain # (float32)
+data_00013_DA0.stimulus_description # (str) X1PS_SubThresh_DA_0
+data_00013_DA0.sweep_number # (uint32)
+data_00013_DA0.electrode # (IntracellularElectrode)
+data_00013_DA0.electrode.description # (str) Headstage 0
+data_00013_DA0.electrode.device # (Device)
+data_00013_DA0.electrode.device.description # (str) Harvard Bioscience (formerly HEKA/Instrutech) Model: ITC18USB
+data_00014_DA0 = stimulus["data_00014_DA0"]
+data_00014_DA0 # (CurrentClampStimulusSeries)
+data_00014_DA0.starting_time # (float64) 1892.6399998664856
+data_00014_DA0.rate # (float32)
+data_00014_DA0.resolution # (float32)
+data_00014_DA0.comments # (str) HS#0:Set Sweep Count: 9.00 \nHS#0:I-Clamp Holding Level: -109.36 pA\nAsync AD 2 [Set Temperature]...
+data_00014_DA0.description # (str) PLACEHOLDER
+data_00014_DA0.conversion # (float32)
+data_00014_DA0.offset # (float) 0.0
+data_00014_DA0.unit # (str) amperes
+data_00014_DA0.data # (Dataset) shape (182375,); dtype float32
+# data_00014_DA0.data[:] # Access all data
+# data_00014_DA0.data[0:n] # Access first n elements
+data_00014_DA0.starting_time_unit # (str) seconds
+data_00014_DA0.gain # (float32)
+data_00014_DA0.stimulus_description # (str) X1PS_SubThresh_DA_0
+data_00014_DA0.sweep_number # (uint32)
+data_00014_DA0.electrode # (IntracellularElectrode)
+data_00014_DA0.electrode.description # (str) Headstage 0
+data_00014_DA0.electrode.device # (Device)
+data_00014_DA0.electrode.device.description # (str) Harvard Bioscience (formerly HEKA/Instrutech) Model: ITC18USB
+# ...
+# Other fields: data_00015_DA0, data_00016_DA0, data_00017_DA0, data_00018_DA0, data_00019_DA0, data_00020_DA0, data_00021_DA0, data_00022_DA0, data_00023_DA0, data_00024_DA0, data_00025_DA0, data_00026_DA0, data_00027_DA0, data_00028_DA0, data_00029_DA0, data_00030_DA0, data_00031_DA0, data_00032_DA0, data_00033_DA0, data_00034_DA0, data_00035_DA0, data_00036_DA0, data_00037_DA0, data_00038_DA0, data_00039_DA0, data_00040_DA0, data_00041_DA0, data_00042_DA0, data_00043_DA0, data_00044_DA0, data_00045_DA0, data_00046_DA0, data_00047_DA0, data_00048_DA0, data_00049_DA0, data_00050_DA0, data_00051_DA0, data_00052_DA0, data_00053_DA0, data_00054_DA0, data_00055_DA0, data_00056_DA0, data_00057_DA0, data_00058_DA0, data_00059_DA0, data_00060_DA0, data_00061_DA0, data_00062_DA0, data_00063_DA0, data_00064_DA0, data_00065_DA0, data_00066_DA0, data_00067_DA0, data_00068_DA0, data_00069_DA0
+# ...
+# Other fields: data_00015_DA0, data_00016_DA0, data_00017_DA0, data_00018_DA0, data_00019_DA0, data_00020_DA0, data_00021_DA0, data_00022_DA0, data_00023_DA0, data_00024_DA0, data_00025_DA0, data_00026_DA0, data_00027_DA0, data_00028_DA0, data_00029_DA0, data_00030_DA0, data_00031_DA0, data_00032_DA0, data_00033_DA0, data_00034_DA0, data_00035_DA0, data_00036_DA0, data_00037_DA0, data_00038_DA0, data_00039_DA0, data_00040_DA0, data_00041_DA0, data_00042_DA0, data_00043_DA0, data_00044_DA0, data_00045_DA0, data_00046_DA0, data_00047_DA0, data_00048_DA0, data_00049_DA0, data_00050_DA0, data_00051_DA0, data_00052_DA0, data_00053_DA0, data_00054_DA0, data_00055_DA0, data_00056_DA0, data_00057_DA0, data_00058_DA0, data_00059_DA0, data_00060_DA0, data_00061_DA0, data_00062_DA0, data_00063_DA0, data_00064_DA0, data_00065_DA0, data_00066_DA0, data_00067_DA0, data_00068_DA0, data_00069_DA0
+nwb.processing # (LabelledDict)
+processing = nwb.processing
+spikes = processing["spikes"]
+spikes # (ProcessingModule)
+spikes.description # (str) detected spikes
+spikes.data_interfaces # (LabelledDict)
+data_interfaces = spikes.data_interfaces
+Sweep_10 = data_interfaces["Sweep_10"]
+Sweep_10 # (TimeSeries)
+Sweep_10.resolution # (float64) -1.0
+Sweep_10.comments # (str) no comments
+Sweep_10.description # (str) no description
+Sweep_10.conversion # (float64) 1.0
+Sweep_10.offset # (float) 0.0
+Sweep_10.unit # (str) seconds
+Sweep_10.data # (Dataset) shape (0,); dtype float64
+# Sweep_10.data[:] # Access all data
+# Sweep_10.data[0:n] # Access first n elements
+Sweep_10.timestamps # (Dataset) shape (0,); dtype float64
+# Sweep_10.timestamps[:] # Access all data
+# Sweep_10.timestamps[0:n] # Access first n elements
+Sweep_10.timestamps_unit # (str) seconds
+Sweep_10.interval # (int) 1
+Sweep_12 = data_interfaces["Sweep_12"]
+Sweep_12 # (TimeSeries)
+Sweep_12.resolution # (float64) -1.0
+Sweep_12.comments # (str) no comments
+Sweep_12.description # (str) no description
+Sweep_12.conversion # (float64) 1.0
+Sweep_12.offset # (float) 0.0
+Sweep_12.unit # (str) seconds
+Sweep_12.data # (Dataset) shape (0,); dtype float64
+# Sweep_12.data[:] # Access all data
+# Sweep_12.data[0:n] # Access first n elements
+Sweep_12.timestamps # (Dataset) shape (0,); dtype float64
+# Sweep_12.timestamps[:] # Access all data
+# Sweep_12.timestamps[0:n] # Access first n elements
+Sweep_12.timestamps_unit # (str) seconds
+Sweep_12.interval # (int) 1
+Sweep_14 = data_interfaces["Sweep_14"]
+Sweep_14 # (TimeSeries)
+Sweep_14.resolution # (float64) -1.0
+Sweep_14.comments # (str) no comments
+Sweep_14.description # (str) no description
+Sweep_14.conversion # (float64) 1.0
+Sweep_14.offset # (float) 0.0
+Sweep_14.unit # (str) seconds
+Sweep_14.data # (Dataset) shape (0,); dtype float64
+# Sweep_14.data[:] # Access all data
+# Sweep_14.data[0:n] # Access first n elements
+Sweep_14.timestamps # (Dataset) shape (0,); dtype float64
+# Sweep_14.timestamps[:] # Access all data
+# Sweep_14.timestamps[0:n] # Access first n elements
+Sweep_14.timestamps_unit # (str) seconds
+Sweep_14.interval # (int) 1
+Sweep_15 = data_interfaces["Sweep_15"]
+Sweep_15 # (TimeSeries)
+Sweep_15.resolution # (float64) -1.0
+Sweep_15.comments # (str) no comments
+Sweep_15.description # (str) no description
+Sweep_15.conversion # (float64) 1.0
+Sweep_15.offset # (float) 0.0
+Sweep_15.unit # (str) seconds
+Sweep_15.data # (Dataset) shape (0,); dtype float64
+# Sweep_15.data[:] # Access all data
+# Sweep_15.data[0:n] # Access first n elements
+Sweep_15.timestamps # (Dataset) shape (0,); dtype float64
+# Sweep_15.timestamps[:] # Access all data
+# Sweep_15.timestamps[0:n] # Access first n elements
+Sweep_15.timestamps_unit # (str) seconds
+Sweep_15.interval # (int) 1
+Sweep_17 = data_interfaces["Sweep_17"]
+Sweep_17 # (TimeSeries)
+Sweep_17.resolution # (float64) -1.0
+Sweep_17.comments # (str) no comments
+Sweep_17.description # (str) no description
+Sweep_17.conversion # (float64) 1.0
+Sweep_17.offset # (float) 0.0
+Sweep_17.unit # (str) seconds
+Sweep_17.data # (Dataset) shape (0,); dtype float64
+# Sweep_17.data[:] # Access all data
+# Sweep_17.data[0:n] # Access first n elements
+Sweep_17.timestamps # (Dataset) shape (0,); dtype float64
+# Sweep_17.timestamps[:] # Access all data
+# Sweep_17.timestamps[0:n] # Access first n elements
+Sweep_17.timestamps_unit # (str) seconds
+Sweep_17.interval # (int) 1
+Sweep_18 = data_interfaces["Sweep_18"]
+Sweep_18 # (TimeSeries)
+Sweep_18.resolution # (float64) -1.0
+Sweep_18.comments # (str) no comments
+Sweep_18.description # (str) no description
+Sweep_18.conversion # (float64) 1.0
+Sweep_18.offset # (float) 0.0
+Sweep_18.unit # (str) seconds
+Sweep_18.data # (Dataset) shape (0,); dtype float64
+# Sweep_18.data[:] # Access all data
+# Sweep_18.data[0:n] # Access first n elements
+Sweep_18.timestamps # (Dataset) shape (0,); dtype float64
+# Sweep_18.timestamps[:] # Access all data
+# Sweep_18.timestamps[0:n] # Access first n elements
+Sweep_18.timestamps_unit # (str) seconds
+Sweep_18.interval # (int) 1
+Sweep_20 = data_interfaces["Sweep_20"]
+Sweep_20 # (TimeSeries)
+Sweep_20.resolution # (float64) -1.0
+Sweep_20.comments # (str) no comments
+Sweep_20.description # (str) no description
+Sweep_20.conversion # (float64) 1.0
+Sweep_20.offset # (float) 0.0
+Sweep_20.unit # (str) seconds
+Sweep_20.data # (Dataset) shape (0,); dtype float64
+# Sweep_20.data[:] # Access all data
+# Sweep_20.data[0:n] # Access first n elements
+Sweep_20.timestamps # (Dataset) shape (0,); dtype float64
+# Sweep_20.timestamps[:] # Access all data
+# Sweep_20.timestamps[0:n] # Access first n elements
+Sweep_20.timestamps_unit # (str) seconds
+Sweep_20.interval # (int) 1
+Sweep_21 = data_interfaces["Sweep_21"]
+Sweep_21 # (TimeSeries)
+Sweep_21.resolution # (float64) -1.0
+Sweep_21.comments # (str) no comments
+Sweep_21.description # (str) no description
+Sweep_21.conversion # (float64) 1.0
+Sweep_21.offset # (float) 0.0
+Sweep_21.unit # (str) seconds
+Sweep_21.data # (Dataset) shape (0,); dtype float64
+# Sweep_21.data[:] # Access all data
+# Sweep_21.data[0:n] # Access first n elements
+Sweep_21.timestamps # (Dataset) shape (0,); dtype float64
+# Sweep_21.timestamps[:] # Access all data
+# Sweep_21.timestamps[0:n] # Access first n elements
+Sweep_21.timestamps_unit # (str) seconds
+Sweep_21.interval # (int) 1
+Sweep_23 = data_interfaces["Sweep_23"]
+Sweep_23 # (TimeSeries)
+Sweep_23.resolution # (float64) -1.0
+Sweep_23.comments # (str) no comments
+Sweep_23.description # (str) no description
+Sweep_23.conversion # (float64) 1.0
+Sweep_23.offset # (float) 0.0
+Sweep_23.unit # (str) seconds
+Sweep_23.data # (Dataset) shape (0,); dtype float64
+# Sweep_23.data[:] # Access all data
+# Sweep_23.data[0:n] # Access first n elements
+Sweep_23.timestamps # (Dataset) shape (0,); dtype float64
+# Sweep_23.timestamps[:] # Access all data
+# Sweep_23.timestamps[0:n] # Access first n elements
+Sweep_23.timestamps_unit # (str) seconds
+Sweep_23.interval # (int) 1
+Sweep_26 = data_interfaces["Sweep_26"]
+Sweep_26 # (TimeSeries)
+Sweep_26.resolution # (float64) -1.0
+Sweep_26.comments # (str) no comments
+Sweep_26.description # (str) no description
+Sweep_26.conversion # (float64) 1.0
+Sweep_26.offset # (float) 0.0
+Sweep_26.unit # (str) seconds
+Sweep_26.data # (Dataset) shape (0,); dtype float64
+# Sweep_26.data[:] # Access all data
+# Sweep_26.data[0:n] # Access first n elements
+Sweep_26.timestamps # (Dataset) shape (0,); dtype float64
+# Sweep_26.timestamps[:] # Access all data
+# Sweep_26.timestamps[0:n] # Access first n elements
+Sweep_26.timestamps_unit # (str) seconds
+Sweep_26.interval # (int) 1
+Sweep_33 = data_interfaces["Sweep_33"]
+Sweep_33 # (TimeSeries)
+Sweep_33.resolution # (float64) -1.0
+Sweep_33.comments # (str) no comments
+Sweep_33.description # (str) no description
+Sweep_33.conversion # (float64) 1.0
+Sweep_33.offset # (float) 0.0
+Sweep_33.unit # (str) seconds
+Sweep_33.data # (Dataset) shape (1,); dtype float64
+# Sweep_33.data[:] # Access all data
+# Sweep_33.data[0:n] # Access first n elements
+# First few values of Sweep_33.data: [0.5954]
+Sweep_33.timestamps # (Dataset) shape (1,); dtype float64
+# Sweep_33.timestamps[:] # Access all data
+# Sweep_33.timestamps[0:n] # Access first n elements
+# First few values of Sweep_33.timestamps: [0.5954]
+Sweep_33.timestamps_unit # (str) seconds
+Sweep_33.interval # (int) 1
+Sweep_34 = data_interfaces["Sweep_34"]
+Sweep_34 # (TimeSeries)
+Sweep_34.resolution # (float64) -1.0
+Sweep_34.comments # (str) no comments
+Sweep_34.description # (str) no description
+Sweep_34.conversion # (float64) 1.0
+Sweep_34.offset # (float) 0.0
+Sweep_34.unit # (str) seconds
+Sweep_34.data # (Dataset) shape (1,); dtype float64
+# Sweep_34.data[:] # Access all data
+# Sweep_34.data[0:n] # Access first n elements
+# First few values of Sweep_34.data: [0.63962]
+Sweep_34.timestamps # (Dataset) shape (1,); dtype float64
+# Sweep_34.timestamps[:] # Access all data
+# Sweep_34.timestamps[0:n] # Access first n elements
+# First few values of Sweep_34.timestamps: [0.63962]
+Sweep_34.timestamps_unit # (str) seconds
+Sweep_34.interval # (int) 1
+Sweep_36 = data_interfaces["Sweep_36"]
+Sweep_36 # (TimeSeries)
+Sweep_36.resolution # (float64) -1.0
+Sweep_36.comments # (str) no comments
+Sweep_36.description # (str) no description
+Sweep_36.conversion # (float64) 1.0
+Sweep_36.offset # (float) 0.0
+Sweep_36.unit # (str) seconds
+Sweep_36.data # (Dataset) shape (1,); dtype float64
+# Sweep_36.data[:] # Access all data
+# Sweep_36.data[0:n] # Access first n elements
+# First few values of Sweep_36.data: [0.56728]
+Sweep_36.timestamps # (Dataset) shape (1,); dtype float64
+# Sweep_36.timestamps[:] # Access all data
+# Sweep_36.timestamps[0:n] # Access first n elements
+# First few values of Sweep_36.timestamps: [0.56728]
+Sweep_36.timestamps_unit # (str) seconds
+Sweep_36.interval # (int) 1
+Sweep_37 = data_interfaces["Sweep_37"]
+Sweep_37 # (TimeSeries)
+Sweep_37.resolution # (float64) -1.0
+Sweep_37.comments # (str) no comments
+Sweep_37.description # (str) no description
+Sweep_37.conversion # (float64) 1.0
+Sweep_37.offset # (float) 0.0
+Sweep_37.unit # (str) seconds
+Sweep_37.data # (Dataset) shape (1,); dtype float64
+# Sweep_37.data[:] # Access all data
+# Sweep_37.data[0:n] # Access first n elements
+# First few values of Sweep_37.data: [0.55302]
+Sweep_37.timestamps # (Dataset) shape (1,); dtype float64
+# Sweep_37.timestamps[:] # Access all data
+# Sweep_37.timestamps[0:n] # Access first n elements
+# First few values of Sweep_37.timestamps: [0.55302]
+Sweep_37.timestamps_unit # (str) seconds
+Sweep_37.interval # (int) 1
+Sweep_38 = data_interfaces["Sweep_38"]
+Sweep_38 # (TimeSeries)
+Sweep_38.resolution # (float64) -1.0
+Sweep_38.comments # (str) no comments
+Sweep_38.description # (str) no description
+Sweep_38.conversion # (float64) 1.0
+Sweep_38.offset # (float) 0.0
+Sweep_38.unit # (str) seconds
+Sweep_38.data # (Dataset) shape (2,); dtype float64
+# Sweep_38.data[:] # Access all data
+# Sweep_38.data[0:n] # Access first n elements
+# First few values of Sweep_38.data: [0.54358 0.63638]
+Sweep_38.timestamps # (Dataset) shape (2,); dtype float64
+# Sweep_38.timestamps[:] # Access all data
+# Sweep_38.timestamps[0:n] # Access first n elements
+# First few values of Sweep_38.timestamps: [0.54358 0.63638]
+Sweep_38.timestamps_unit # (str) seconds
+Sweep_38.interval # (int) 1
+# ...
+# Other fields: Sweep_39, Sweep_41, Sweep_42, Sweep_5, Sweep_62, Sweep_63, Sweep_64, Sweep_65, Sweep_67, Sweep_7, Sweep_9
+# ...
+# Other fields: Sweep_39, Sweep_41, Sweep_42, Sweep_5, Sweep_62, Sweep_63, Sweep_64, Sweep_65, Sweep_67, Sweep_7, Sweep_9
+nwb.devices # (LabelledDict)
+devices = nwb.devices
+device_ITC18USB_Dev_0 = devices["device_ITC18USB_Dev_0"]
+device_ITC18USB_Dev_0 # (Device)
+device_ITC18USB_Dev_0.description # (str) Harvard Bioscience (formerly HEKA/Instrutech) Model: ITC18USB
+nwb.intervals # (LabelledDict)
+intervals = nwb.intervals
+epochs = intervals["epochs"]
+epochs # (TimeIntervals)
+epochs.description # (str) experimental epochs
+epochs.colnames # (tuple) ['start_time', 'stop_time', 'tags', 'timeseries', 'treelevel']
+epochs.columns # (tuple)
+epochs.id # (ElementIdentifiers)
+# epochs.to_dataframe() # (DataFrame) Convert to a pandas DataFrame with 681 rows and 7 columns
+# epochs.to_dataframe().head() # (DataFrame) Show the first few rows of the pandas DataFrame
+epochs.start_time # (VectorData) Start time of epoch, in seconds
+epochs.stop_time # (VectorData) Stop time of epoch, in seconds
+epochs.tags # (VectorIndex) Index for VectorData 'tags'
+# epochs.tags_index[0] # (ndarray)
+# epochs.tags_index[1] # (ndarray)
+# epochs.tags_index[2] # (ndarray)
+# epochs.tags_index[3] # (ndarray)
+# ...
+epochs.timeseries # (VectorIndex) Index for VectorData 'timeseries'
+# epochs.timeseries_index[0] # (list)
+# epochs.timeseries_index[1] # (list)
+# epochs.timeseries_index[2] # (list)
+# epochs.timeseries_index[3] # (list)
+# ...
+epochs.treelevel # (VectorData) Tree Level
+nwb.session_id # (str) 1207262032
+nwb.institution # (str) Allen Institute for Brain Science
+nwb.data_collection # (str)   Specified StimSet file at C:/ProgramData/AllenInstitute/MIES/MIESHDF5Files/SavedStimSets/PS_Sti...
+nwb.source_script # (str) MIES
+nwb.source_script_file_name # (str) 2022_09_06_104445
+nwb.icephys_filtering # (str) PLACEHOLDER
+nwb.subject # (Subject)
+nwb.subject.age # (str) P21170.0D
+nwb.subject.genotype # (str) 
+nwb.subject.sex # (str) M
+nwb.subject.species # (str) Homo sapiens
+nwb.subject.subject_id # (str) 1203384279
+nwb.sweep_table # (SweepTable)
+nwb.sweep_table.description # (str) A sweep table groups different PatchClampSeries together.
+nwb.sweep_table.colnames # (tuple) ['series', 'sweep_number']
+nwb.sweep_table.columns # (tuple)
+nwb.sweep_table.id # (ElementIdentifiers)
+# nwb.sweep_table.to_dataframe() # (DataFrame) Convert to a pandas DataFrame with 140 rows and 3 columns
+# nwb.sweep_table.to_dataframe().head() # (DataFrame) Show the first few rows of the pandas DataFrame
+nwb.sweep_table.series # (VectorIndex) Index for VectorData 'series'
+# nwb.sweep_table.series_index[0] # (list)
+# nwb.sweep_table.series_index[1] # (list)
+# nwb.sweep_table.series_index[2] # (list)
+# nwb.sweep_table.series_index[3] # (list)
+# ...
+nwb.sweep_table.sweep_number # (VectorData) Sweep number of the PatchClampSeries in that row.
+nwb.epochs # (TimeIntervals)
+nwb.epochs.description # (str) experimental epochs
+nwb.epochs.colnames # (tuple) ['start_time', 'stop_time', 'tags', 'timeseries', 'treelevel']
+nwb.epochs.columns # (tuple)
+nwb.epochs.id # (ElementIdentifiers)
+# nwb.epochs.to_dataframe() # (DataFrame) Convert to a pandas DataFrame with 681 rows and 7 columns
+# nwb.epochs.to_dataframe().head() # (DataFrame) Show the first few rows of the pandas DataFrame
+nwb.epochs.start_time # (VectorData) Start time of epoch, in seconds
+nwb.epochs.stop_time # (VectorData) Stop time of epoch, in seconds
+nwb.epochs.tags # (VectorIndex) Index for VectorData 'tags'
+# nwb.epochs.tags_index[0] # (ndarray)
+# nwb.epochs.tags_index[1] # (ndarray)
+# nwb.epochs.tags_index[2] # (ndarray)
+# nwb.epochs.tags_index[3] # (ndarray)
+# ...
+nwb.epochs.timeseries # (VectorIndex) Index for VectorData 'timeseries'
+# nwb.epochs.timeseries_index[0] # (list)
+# nwb.epochs.timeseries_index[1] # (list)
+# nwb.epochs.timeseries_index[2] # (list)
+# nwb.epochs.timeseries_index[3] # (list)
+# ...
+nwb.epochs.treelevel # (VectorData) Tree Level
+Total prompt tokens: 31787 + 0
+Total completion tokens: 1046 + 0
+
+=========================================
+
+execute_command 'python tools_cli.py nwb-file-info 001359 https://api.dandiarchive.org/api/assets/c269347a-2d4b-4b6a-8b7c-2ef303ff503d/download/ --version 0.250401.1603' (requires approval):
+Command executed successfully
+STDOUT:
+# This script shows how to load the NWB file at https://api.dandiarchive.org/api/assets/c269347a-2d4b-4b6a-8b7c-2ef303ff503d/download/ in Python using PyNWB
+
+import pynwb
+import h5py
+import remfile
+
+# Load
+url = "https://api.dandiarchive.org/api/assets/c269347a-2d4b-4b6a-8b7c-2ef303ff503d/download/"
+remote_file = remfile.File(url)
+h5_file = h5py.File(remote_file)
+io = pynwb.NWBHDF5IO(file=h5_file)
+nwb = io.read()
+
+nwb # (NWBFile)
+nwb.session_description # (str) PLACEHOLDER
+nwb.identifier # (str) 0b7926a648abdf35aa91c67131cbd47b1d9786dd72001bd7e2b454be71ac3a6c
+nwb.session_start_time # (datetime) 2022-09-06T17:44:39.146000+00:00
+nwb.timestamps_reference_time # (datetime) 2022-09-06T17:44:39.146000+00:00
+nwb.file_create_date # (list) [datetime.datetime(2022, 9, 6, 11, 40, 39, 406000, tzinfo=tzoffset(None, -25200)), datetime.datetime(2022, 9, 6, 11, 40, 39, tzinfo=tzoffset(None, -25200)), datetime.datetime(2022, 9, 6, 11, 40, 39, tzinfo=tzoffset(None, -25200)), datetime.datetime(2022, 9, 6, 11, 40, 49, tzinfo=tzoffset(None, -25200))]
+nwb.icephys_electrodes # (LabelledDict)
+icephys_electrodes = nwb.icephys_electrodes
+electrode_0 = icephys_electrodes["electrode_0"]
+electrode_0 # (IntracellularElectrode)
+electrode_0.description # (str) Headstage 0
+electrode_0.device # (Device)
+electrode_0.device.description # (str) Harvard Bioscience (formerly HEKA/Instrutech) Model: ITC18USB
+nwb.acquisition # (LabelledDict)
+acquisition = nwb.acquisition
+data_00000_AD0 = acquisition["data_00000_AD0"]
+data_00000_AD0 # (VoltageClampSeries)
+data_00000_AD0.starting_time # (float64) 80.8120002746582
+data_00000_AD0.rate # (float32)
+data_00000_AD0.resolution # (float32)
+data_00000_AD0.comments # (str) HS#0:Fast compensation capacitance: 0.00 F\nHS#0:Slow compensation capacitance: 0.00 F\nHS#0:Fast...
+data_00000_AD0.description # (str) PLACEHOLDER
+data_00000_AD0.conversion # (float32)
+data_00000_AD0.offset # (float) 0.0
+data_00000_AD0.unit # (str) amperes
+data_00000_AD0.data # (Dataset) shape (161000,); dtype float32
+# data_00000_AD0.data[:] # Access all data
+# data_00000_AD0.data[0:n] # Access first n elements
+data_00000_AD0.starting_time_unit # (str) seconds
+data_00000_AD0.gain # (float32)
+data_00000_AD0.stimulus_description # (str) EXTPSMOKET180424_DA_0
+data_00000_AD0.sweep_number # (uint32)
+data_00000_AD0.capacitance_fast # (float32)
+data_00000_AD0.capacitance_slow # (float32)
+data_00000_AD0.electrode # (IntracellularElectrode)
+data_00000_AD0.electrode.description # (str) Headstage 0
+data_00000_AD0.electrode.device # (Device)
+data_00000_AD0.electrode.device.description # (str) Harvard Bioscience (formerly HEKA/Instrutech) Model: ITC18USB
+data_00001_AD0 = acquisition["data_00001_AD0"]
+data_00001_AD0 # (VoltageClampSeries)
+data_00001_AD0.starting_time # (float64) 948.2960000038147
+data_00001_AD0.rate # (float32)
+data_00001_AD0.resolution # (float32)
+data_00001_AD0.comments # (str) Repeated Acq Cycle ID: 7889662.00 \nHS#0:Stim Wave Checksum: 3854609926.00 \nHS#0:Stimset Acq Cyc...
+data_00001_AD0.description # (str) PLACEHOLDER
+data_00001_AD0.conversion # (float32)
+data_00001_AD0.offset # (float) 0.0
+data_00001_AD0.unit # (str) amperes
+data_00001_AD0.data # (Dataset) shape (161000,); dtype float32
+# data_00001_AD0.data[:] # Access all data
+# data_00001_AD0.data[0:n] # Access first n elements
+data_00001_AD0.starting_time_unit # (str) seconds
+data_00001_AD0.gain # (float32)
+data_00001_AD0.stimulus_description # (str) EXTPINBATH180424_DA_0
+data_00001_AD0.sweep_number # (uint32)
+data_00001_AD0.capacitance_fast # (float32)
+data_00001_AD0.capacitance_slow # (float32)
+data_00001_AD0.electrode # (IntracellularElectrode)
+data_00001_AD0.electrode.description # (str) Headstage 0
+data_00001_AD0.electrode.device # (Device)
+data_00001_AD0.electrode.device.description # (str) Harvard Bioscience (formerly HEKA/Instrutech) Model: ITC18USB
+data_00002_AD0 = acquisition["data_00002_AD0"]
+data_00002_AD0 # (VoltageClampSeries)
+data_00002_AD0.starting_time # (float64) 1038.1360001564026
+data_00002_AD0.rate # (float32)
+data_00002_AD0.resolution # (float32)
+data_00002_AD0.comments # (str) HS#0:Stim set length: 12277000.00 \nRepeated Acq Cycle ID: 8387383.00 \nHS#0:Stim Wave Checksum: ...
+data_00002_AD0.description # (str) PLACEHOLDER
+data_00002_AD0.conversion # (float32)
+data_00002_AD0.offset # (float) 0.0
+data_00002_AD0.unit # (str) amperes
+data_00002_AD0.data # (Dataset) shape (12297000,); dtype float32
+# data_00002_AD0.data[:] # Access all data
+# data_00002_AD0.data[0:n] # Access first n elements
+data_00002_AD0.starting_time_unit # (str) seconds
+data_00002_AD0.gain # (float32)
+data_00002_AD0.stimulus_description # (str) EXTPCllATT180424_DA_0
+data_00002_AD0.sweep_number # (uint32)
+data_00002_AD0.capacitance_fast # (float32)
+data_00002_AD0.capacitance_slow # (float32)
+data_00002_AD0.electrode # (IntracellularElectrode)
+data_00002_AD0.electrode.description # (str) Headstage 0
+data_00002_AD0.electrode.device # (Device)
+data_00002_AD0.electrode.device.description # (str) Harvard Bioscience (formerly HEKA/Instrutech) Model: ITC18USB
+data_00003_AD0 = acquisition["data_00003_AD0"]
+data_00003_AD0 # (VoltageClampSeries)
+data_00003_AD0.starting_time # (float64) 1691.018000125885
+data_00003_AD0.rate # (float32)
+data_00003_AD0.resolution # (float32)
+data_00003_AD0.comments # (str) HS#0:USER_Access Res. Smoke version: 1.00 \nHS#0:USER_Access Res. Smoke BL QC: On\nHS#0:USER_Acce...
+data_00003_AD0.description # (str) PLACEHOLDER
+data_00003_AD0.conversion # (float32)
+data_00003_AD0.offset # (float) 0.0
+data_00003_AD0.unit # (str) amperes
+data_00003_AD0.data # (Dataset) shape (161000,); dtype float32
+# data_00003_AD0.data[:] # Access all data
+# data_00003_AD0.data[0:n] # Access first n elements
+data_00003_AD0.starting_time_unit # (str) seconds
+data_00003_AD0.gain # (float32)
+data_00003_AD0.stimulus_description # (str) EXTPBREAKN180424_DA_0
+data_00003_AD0.sweep_number # (uint32)
+data_00003_AD0.capacitance_fast # (float32)
+data_00003_AD0.capacitance_slow # (float32)
+data_00003_AD0.electrode # (IntracellularElectrode)
+data_00003_AD0.electrode.description # (str) Headstage 0
+data_00003_AD0.electrode.device # (Device)
+data_00003_AD0.electrode.device.description # (str) Harvard Bioscience (formerly HEKA/Instrutech) Model: ITC18USB
+data_00004_AD0 = acquisition["data_00004_AD0"]
+data_00004_AD0 # (CurrentClampSeries)
+data_00004_AD0.starting_time # (float64) 1770.6110000610352
+data_00004_AD0.rate # (float32)
+data_00004_AD0.resolution # (float32)
+data_00004_AD0.comments # (str) HS#0:DA Gain: 400.00 \nHS#0:AD Gain: 0.01 \nDelay onset auto: 147.49 ms\nSampling interval multip...
+data_00004_AD0.description # (str) PLACEHOLDER
+data_00004_AD0.conversion # (float32)
+data_00004_AD0.offset # (float) 0.0
+data_00004_AD0.unit # (str) volts
+data_00004_AD0.data # (Dataset) shape (307375,); dtype float32
+# data_00004_AD0.data[:] # Access all data
+# data_00004_AD0.data[0:n] # Access first n elements
+data_00004_AD0.starting_time_unit # (str) seconds
+data_00004_AD0.gain # (float32)
+data_00004_AD0.stimulus_description # (str) X0NRMP_DA_0
+data_00004_AD0.sweep_number # (uint32)
+data_00004_AD0.bridge_balance # (float32)
+data_00004_AD0.capacitance_compensation # (float32)
+data_00004_AD0.electrode # (IntracellularElectrode)
+data_00004_AD0.electrode.description # (str) Headstage 0
+data_00004_AD0.electrode.device # (Device)
+data_00004_AD0.electrode.device.description # (str) Harvard Bioscience (formerly HEKA/Instrutech) Model: ITC18USB
+data_00005_AD0 = acquisition["data_00005_AD0"]
+data_00005_AD0 # (CurrentClampSeries)
+data_00005_AD0.starting_time # (float64) 1822.66100025177
+data_00005_AD0.rate # (float32)
+data_00005_AD0.resolution # (float32)
+data_00005_AD0.comments # (str) HS#0:Stim Scale Factor: -30.00 \nIndexing: On\nHS#0:Stim set length: 175000.00 \nRepeated Acq Cyc...
+data_00005_AD0.description # (str) PLACEHOLDER
+data_00005_AD0.conversion # (float32)
+data_00005_AD0.offset # (float) 0.0
+data_00005_AD0.unit # (str) volts
+data_00005_AD0.data # (Dataset) shape (182375,); dtype float32
+# data_00005_AD0.data[:] # Access all data
+# data_00005_AD0.data[0:n] # Access first n elements
+data_00005_AD0.starting_time_unit # (str) seconds
+data_00005_AD0.gain # (float32)
+data_00005_AD0.stimulus_description # (str) X1PS_SubThresh_DA_0
+data_00005_AD0.sweep_number # (uint32)
+data_00005_AD0.bias_current # (float32)
+data_00005_AD0.bridge_balance # (float32)
+data_00005_AD0.capacitance_compensation # (float32)
+data_00005_AD0.electrode # (IntracellularElectrode)
+data_00005_AD0.electrode.description # (str) Headstage 0
+data_00005_AD0.electrode.device # (Device)
+data_00005_AD0.electrode.device.description # (str) Harvard Bioscience (formerly HEKA/Instrutech) Model: ITC18USB
+data_00006_AD0 = acquisition["data_00006_AD0"]
+data_00006_AD0 # (CurrentClampSeries)
+data_00006_AD0.starting_time # (float64) 1825.558000087738
+data_00006_AD0.rate # (float32)
+data_00006_AD0.resolution # (float32)
+data_00006_AD0.comments # (str) HS#0:Stim Scale Factor: -50.00 \nHS#0:Set Sweep Count: 1.00 \nAsync AD 2 [Set Temperature]: 43.84...
+data_00006_AD0.description # (str) PLACEHOLDER
+data_00006_AD0.conversion # (float32)
+data_00006_AD0.offset # (float) 0.0
+data_00006_AD0.unit # (str) volts
+data_00006_AD0.data # (Dataset) shape (182375,); dtype float32
+# data_00006_AD0.data[:] # Access all data
+# data_00006_AD0.data[0:n] # Access first n elements
+data_00006_AD0.starting_time_unit # (str) seconds
+data_00006_AD0.gain # (float32)
+data_00006_AD0.stimulus_description # (str) X1PS_SubThresh_DA_0
+data_00006_AD0.sweep_number # (uint32)
+data_00006_AD0.bias_current # (float32)
+data_00006_AD0.bridge_balance # (float32)
+data_00006_AD0.capacitance_compensation # (float32)
+data_00006_AD0.electrode # (IntracellularElectrode)
+data_00006_AD0.electrode.description # (str) Headstage 0
+data_00006_AD0.electrode.device # (Device)
+data_00006_AD0.electrode.device.description # (str) Harvard Bioscience (formerly HEKA/Instrutech) Model: ITC18USB
+data_00007_AD0 = acquisition["data_00007_AD0"]
+data_00007_AD0 # (CurrentClampSeries)
+data_00007_AD0.starting_time # (float64) 1838.7249999046326
+data_00007_AD0.rate # (float32)
+data_00007_AD0.resolution # (float32)
+data_00007_AD0.comments # (str) HS#0:Set Sweep Count: 2.00 \nHS#0:I-Clamp Holding Level: -89.42 pA\nAsync AD 2 [Set Temperature]:...
+data_00007_AD0.description # (str) PLACEHOLDER
+data_00007_AD0.conversion # (float32)
+data_00007_AD0.offset # (float) 0.0
+data_00007_AD0.unit # (str) volts
+data_00007_AD0.data # (Dataset) shape (182375,); dtype float32
+# data_00007_AD0.data[:] # Access all data
+# data_00007_AD0.data[0:n] # Access first n elements
+data_00007_AD0.starting_time_unit # (str) seconds
+data_00007_AD0.gain # (float32)
+data_00007_AD0.stimulus_description # (str) X1PS_SubThresh_DA_0
+data_00007_AD0.sweep_number # (uint32)
+data_00007_AD0.bias_current # (float32)
+data_00007_AD0.bridge_balance # (float32)
+data_00007_AD0.capacitance_compensation # (float32)
+data_00007_AD0.electrode # (IntracellularElectrode)
+data_00007_AD0.electrode.description # (str) Headstage 0
+data_00007_AD0.electrode.device # (Device)
+data_00007_AD0.electrode.device.description # (str) Harvard Bioscience (formerly HEKA/Instrutech) Model: ITC18USB
+data_00008_AD0 = acquisition["data_00008_AD0"]
+data_00008_AD0 # (CurrentClampSeries)
+data_00008_AD0.starting_time # (float64) 1842.621000289917
+data_00008_AD0.rate # (float32)
+data_00008_AD0.resolution # (float32)
+data_00008_AD0.comments # (str) HS#0:Set Sweep Count: 3.00 \nHS#0:USER_DA Scale Chk0 T-V BL: On\nHS#0:USER_DA Scale Chk0 T-V BL Q...
+data_00008_AD0.description # (str) PLACEHOLDER
+data_00008_AD0.conversion # (float32)
+data_00008_AD0.offset # (float) 0.0
+data_00008_AD0.unit # (str) volts
+data_00008_AD0.data # (Dataset) shape (182375,); dtype float32
+# data_00008_AD0.data[:] # Access all data
+# data_00008_AD0.data[0:n] # Access first n elements
+data_00008_AD0.starting_time_unit # (str) seconds
+data_00008_AD0.gain # (float32)
+data_00008_AD0.stimulus_description # (str) X1PS_SubThresh_DA_0
+data_00008_AD0.sweep_number # (uint32)
+data_00008_AD0.bias_current # (float32)
+data_00008_AD0.bridge_balance # (float32)
+data_00008_AD0.capacitance_compensation # (float32)
+data_00008_AD0.electrode # (IntracellularElectrode)
+data_00008_AD0.electrode.description # (str) Headstage 0
+data_00008_AD0.electrode.device # (Device)
+data_00008_AD0.electrode.device.description # (str) Harvard Bioscience (formerly HEKA/Instrutech) Model: ITC18USB
+data_00009_AD0 = acquisition["data_00009_AD0"]
+data_00009_AD0 # (CurrentClampSeries)
+data_00009_AD0.starting_time # (float64) 1855.6529998779297
+data_00009_AD0.rate # (float32)
+data_00009_AD0.resolution # (float32)
+data_00009_AD0.comments # (str) HS#0:Set Sweep Count: 4.00 \nHS#0:I-Clamp Holding Level: -95.59 pA\nAsync AD 2 [Set Temperature]:...
+data_00009_AD0.description # (str) PLACEHOLDER
+data_00009_AD0.conversion # (float32)
+data_00009_AD0.offset # (float) 0.0
+data_00009_AD0.unit # (str) volts
+data_00009_AD0.data # (Dataset) shape (182375,); dtype float32
+# data_00009_AD0.data[:] # Access all data
+# data_00009_AD0.data[0:n] # Access first n elements
+data_00009_AD0.starting_time_unit # (str) seconds
+data_00009_AD0.gain # (float32)
+data_00009_AD0.stimulus_description # (str) X1PS_SubThresh_DA_0
+data_00009_AD0.sweep_number # (uint32)
+data_00009_AD0.bias_current # (float32)
+data_00009_AD0.bridge_balance # (float32)
+data_00009_AD0.capacitance_compensation # (float32)
+data_00009_AD0.electrode # (IntracellularElectrode)
+data_00009_AD0.electrode.description # (str) Headstage 0
+data_00009_AD0.electrode.device # (Device)
+data_00009_AD0.electrode.device.description # (str) Harvard Bioscience (formerly HEKA/Instrutech) Model: ITC18USB
+data_00010_AD0 = acquisition["data_00010_AD0"]
+data_00010_AD0 # (CurrentClampSeries)
+data_00010_AD0.starting_time # (float64) 1858.539999961853
+data_00010_AD0.rate # (float32)
+data_00010_AD0.resolution # (float32)
+data_00010_AD0.comments # (str) HS#0:Stim Scale Factor: -70.00 \nHS#0:Set Sweep Count: 5.00 \nAsync AD 2 [Set Temperature]: 43.87...
+data_00010_AD0.description # (str) PLACEHOLDER
+data_00010_AD0.conversion # (float32)
+data_00010_AD0.offset # (float) 0.0
+data_00010_AD0.unit # (str) volts
+data_00010_AD0.data # (Dataset) shape (182375,); dtype float32
+# data_00010_AD0.data[:] # Access all data
+# data_00010_AD0.data[0:n] # Access first n elements
+data_00010_AD0.starting_time_unit # (str) seconds
+data_00010_AD0.gain # (float32)
+data_00010_AD0.stimulus_description # (str) X1PS_SubThresh_DA_0
+data_00010_AD0.sweep_number # (uint32)
+data_00010_AD0.bias_current # (float32)
+data_00010_AD0.bridge_balance # (float32)
+data_00010_AD0.capacitance_compensation # (float32)
+data_00010_AD0.electrode # (IntracellularElectrode)
+data_00010_AD0.electrode.description # (str) Headstage 0
+data_00010_AD0.electrode.device # (Device)
+data_00010_AD0.electrode.device.description # (str) Harvard Bioscience (formerly HEKA/Instrutech) Model: ITC18USB
+data_00011_AD0 = acquisition["data_00011_AD0"]
+data_00011_AD0 # (CurrentClampSeries)
+data_00011_AD0.starting_time # (float64) 1862.5160002708435
+data_00011_AD0.rate # (float32)
+data_00011_AD0.resolution # (float32)
+data_00011_AD0.comments # (str) HS#0:Set Sweep Count: 6.00 \nAsync AD 2 [Set Temperature]: 43.84 degC\nHS#0:USER_DA Scale Chk0 T-...
+data_00011_AD0.description # (str) PLACEHOLDER
+data_00011_AD0.conversion # (float32)
+data_00011_AD0.offset # (float) 0.0
+data_00011_AD0.unit # (str) volts
+data_00011_AD0.data # (Dataset) shape (182375,); dtype float32
+# data_00011_AD0.data[:] # Access all data
+# data_00011_AD0.data[0:n] # Access first n elements
+data_00011_AD0.starting_time_unit # (str) seconds
+data_00011_AD0.gain # (float32)
+data_00011_AD0.stimulus_description # (str) X1PS_SubThresh_DA_0
+data_00011_AD0.sweep_number # (uint32)
+data_00011_AD0.bias_current # (float32)
+data_00011_AD0.bridge_balance # (float32)
+data_00011_AD0.capacitance_compensation # (float32)
+data_00011_AD0.electrode # (IntracellularElectrode)
+data_00011_AD0.electrode.description # (str) Headstage 0
+data_00011_AD0.electrode.device # (Device)
+data_00011_AD0.electrode.device.description # (str) Harvard Bioscience (formerly HEKA/Instrutech) Model: ITC18USB
+data_00012_AD0 = acquisition["data_00012_AD0"]
+data_00012_AD0 # (CurrentClampSeries)
+data_00012_AD0.starting_time # (float64) 1875.6820001602173
+data_00012_AD0.rate # (float32)
+data_00012_AD0.resolution # (float32)
+data_00012_AD0.comments # (str) HS#0:Set Sweep Count: 7.00 \nHS#0:I-Clamp Holding Level: -102.41 pA\nAsync AD 2 [Set Temperature]...
+data_00012_AD0.description # (str) PLACEHOLDER
+data_00012_AD0.conversion # (float32)
+data_00012_AD0.offset # (float) 0.0
+data_00012_AD0.unit # (str) volts
+data_00012_AD0.data # (Dataset) shape (182375,); dtype float32
+# data_00012_AD0.data[:] # Access all data
+# data_00012_AD0.data[0:n] # Access first n elements
+data_00012_AD0.starting_time_unit # (str) seconds
+data_00012_AD0.gain # (float32)
+data_00012_AD0.stimulus_description # (str) X1PS_SubThresh_DA_0
+data_00012_AD0.sweep_number # (uint32)
+data_00012_AD0.bias_current # (float32)
+data_00012_AD0.bridge_balance # (float32)
+data_00012_AD0.capacitance_compensation # (float32)
+data_00012_AD0.electrode # (IntracellularElectrode)
+data_00012_AD0.electrode.description # (str) Headstage 0
+data_00012_AD0.electrode.device # (Device)
+data_00012_AD0.electrode.device.description # (str) Harvard Bioscience (formerly HEKA/Instrutech) Model: ITC18USB
+data_00013_AD0 = acquisition["data_00013_AD0"]
+data_00013_AD0 # (CurrentClampSeries)
+data_00013_AD0.starting_time # (float64) 1879.606999874115
+data_00013_AD0.rate # (float32)
+data_00013_AD0.resolution # (float32)
+data_00013_AD0.comments # (str) HS#0:Set Sweep Count: 8.00 \nAsync AD 2 [Set Temperature]: 43.87 degC\nHS#0:USER_DA Scale Chk0 T-...
+data_00013_AD0.description # (str) PLACEHOLDER
+data_00013_AD0.conversion # (float32)
+data_00013_AD0.offset # (float) 0.0
+data_00013_AD0.unit # (str) volts
+data_00013_AD0.data # (Dataset) shape (182375,); dtype float32
+# data_00013_AD0.data[:] # Access all data
+# data_00013_AD0.data[0:n] # Access first n elements
+data_00013_AD0.starting_time_unit # (str) seconds
+data_00013_AD0.gain # (float32)
+data_00013_AD0.stimulus_description # (str) X1PS_SubThresh_DA_0
+data_00013_AD0.sweep_number # (uint32)
+data_00013_AD0.bias_current # (float32)
+data_00013_AD0.bridge_balance # (float32)
+data_00013_AD0.capacitance_compensation # (float32)
+data_00013_AD0.electrode # (IntracellularElectrode)
+data_00013_AD0.electrode.description # (str) Headstage 0
+data_00013_AD0.electrode.device # (Device)
+data_00013_AD0.electrode.device.description # (str) Harvard Bioscience (formerly HEKA/Instrutech) Model: ITC18USB
+data_00014_AD0 = acquisition["data_00014_AD0"]
+data_00014_AD0 # (CurrentClampSeries)
+data_00014_AD0.starting_time # (float64) 1892.6399998664856
+data_00014_AD0.rate # (float32)
+data_00014_AD0.resolution # (float32)
+data_00014_AD0.comments # (str) HS#0:Set Sweep Count: 9.00 \nHS#0:I-Clamp Holding Level: -109.36 pA\nAsync AD 2 [Set Temperature]...
+data_00014_AD0.description # (str) PLACEHOLDER
+data_00014_AD0.conversion # (float32)
+data_00014_AD0.offset # (float) 0.0
+data_00014_AD0.unit # (str) volts
+data_00014_AD0.data # (Dataset) shape (182375,); dtype float32
+# data_00014_AD0.data[:] # Access all data
+# data_00014_AD0.data[0:n] # Access first n elements
+data_00014_AD0.starting_time_unit # (str) seconds
+data_00014_AD0.gain # (float32)
+data_00014_AD0.stimulus_description # (str) X1PS_SubThresh_DA_0
+data_00014_AD0.sweep_number # (uint32)
+data_00014_AD0.bias_current # (float32)
+data_00014_AD0.bridge_balance # (float32)
+data_00014_AD0.capacitance_compensation # (float32)
+data_00014_AD0.electrode # (IntracellularElectrode)
+data_00014_AD0.electrode.description # (str) Headstage 0
+data_00014_AD0.electrode.device # (Device)
+data_00014_AD0.electrode.device.description # (str) Harvard Bioscience (formerly HEKA/Instrutech) Model: ITC18USB
+# ...
+# Other fields: data_00015_AD0, data_00016_AD0, data_00017_AD0, data_00018_AD0, data_00019_AD0, data_00020_AD0, data_00021_AD0, data_00022_AD0, data_00023_AD0, data_00024_AD0, data_00025_AD0, data_00026_AD0, data_00027_AD0, data_00028_AD0, data_00029_AD0, data_00030_AD0, data_00031_AD0, data_00032_AD0, data_00033_AD0, data_00034_AD0, data_00035_AD0, data_00036_AD0, data_00037_AD0, data_00038_AD0, data_00039_AD0, data_00040_AD0, data_00041_AD0, data_00042_AD0, data_00043_AD0, data_00044_AD0, data_00045_AD0, data_00046_AD0, data_00047_AD0, data_00048_AD0, data_00049_AD0, data_00050_AD0, data_00051_AD0, data_00052_AD0, data_00053_AD0, data_00054_AD0, data_00055_AD0, data_00056_AD0, data_00057_AD0, data_00058_AD0, data_00059_AD0, data_00060_AD0, data_00061_AD0, data_00062_AD0, data_00063_AD0, data_00064_AD0, data_00065_AD0, data_00066_AD0, data_00067_AD0, data_00068_AD0, data_00069_AD0
+# ...
+# Other fields: data_00015_AD0, data_00016_AD0, data_00017_AD0, data_00018_AD0, data_00019_AD0, data_00020_AD0, data_00021_AD0, data_00022_AD0, data_00023_AD0, data_00024_AD0, data_00025_AD0, data_00026_AD0, data_00027_AD0, data_00028_AD0, data_00029_AD0, data_00030_AD0, data_00031_AD0, data_00032_AD0, data_00033_AD0, data_00034_AD0, data_00035_AD0, data_00036_AD0, data_00037_AD0, data_00038_AD0, data_00039_AD0, data_00040_AD0, data_00041_AD0, data_00042_AD0, data_00043_AD0, data_00044_AD0, data_00045_AD0, data_00046_AD0, data_00047_AD0, data_00048_AD0, data_00049_AD0, data_00050_AD0, data_00051_AD0, data_00052_AD0, data_00053_AD0, data_00054_AD0, data_00055_AD0, data_00056_AD0, data_00057_AD0, data_00058_AD0, data_00059_AD0, data_00060_AD0, data_00061_AD0, data_00062_AD0, data_00063_AD0, data_00064_AD0, data_00065_AD0, data_00066_AD0, data_00067_AD0, data_00068_AD0, data_00069_AD0
+nwb.stimulus # (LabelledDict)
+stimulus = nwb.stimulus
+data_00000_DA0 = stimulus["data_00000_DA0"]
+data_00000_DA0 # (VoltageClampStimulusSeries)
+data_00000_DA0.starting_time # (float64) 80.8120002746582
+data_00000_DA0.rate # (float32)
+data_00000_DA0.resolution # (float32)
+data_00000_DA0.comments # (str) HS#0:Fast compensation capacitance: 0.00 F\nHS#0:Slow compensation capacitance: 0.00 F\nHS#0:Fast...
+data_00000_DA0.description # (str) PLACEHOLDER
+data_00000_DA0.conversion # (float32)
+data_00000_DA0.offset # (float) 0.0
+data_00000_DA0.unit # (str) volts
+data_00000_DA0.data # (Dataset) shape (161000,); dtype float32
+# data_00000_DA0.data[:] # Access all data
+# data_00000_DA0.data[0:n] # Access first n elements
+data_00000_DA0.starting_time_unit # (str) seconds
+data_00000_DA0.gain # (float32)
+data_00000_DA0.stimulus_description # (str) EXTPSMOKET180424_DA_0
+data_00000_DA0.sweep_number # (uint32)
+data_00000_DA0.electrode # (IntracellularElectrode)
+data_00000_DA0.electrode.description # (str) Headstage 0
+data_00000_DA0.electrode.device # (Device)
+data_00000_DA0.electrode.device.description # (str) Harvard Bioscience (formerly HEKA/Instrutech) Model: ITC18USB
+data_00001_DA0 = stimulus["data_00001_DA0"]
+data_00001_DA0 # (VoltageClampStimulusSeries)
+data_00001_DA0.starting_time # (float64) 948.2960000038147
+data_00001_DA0.rate # (float32)
+data_00001_DA0.resolution # (float32)
+data_00001_DA0.comments # (str) Repeated Acq Cycle ID: 7889662.00 \nHS#0:Stim Wave Checksum: 3854609926.00 \nHS#0:Stimset Acq Cyc...
+data_00001_DA0.description # (str) PLACEHOLDER
+data_00001_DA0.conversion # (float32)
+data_00001_DA0.offset # (float) 0.0
+data_00001_DA0.unit # (str) volts
+data_00001_DA0.data # (Dataset) shape (161000,); dtype float32
+# data_00001_DA0.data[:] # Access all data
+# data_00001_DA0.data[0:n] # Access first n elements
+data_00001_DA0.starting_time_unit # (str) seconds
+data_00001_DA0.gain # (float32)
+data_00001_DA0.stimulus_description # (str) EXTPINBATH180424_DA_0
+data_00001_DA0.sweep_number # (uint32)
+data_00001_DA0.electrode # (IntracellularElectrode)
+data_00001_DA0.electrode.description # (str) Headstage 0
+data_00001_DA0.electrode.device # (Device)
+data_00001_DA0.electrode.device.description # (str) Harvard Bioscience (formerly HEKA/Instrutech) Model: ITC18USB
+data_00002_DA0 = stimulus["data_00002_DA0"]
+data_00002_DA0 # (VoltageClampStimulusSeries)
+data_00002_DA0.starting_time # (float64) 1038.1360001564026
+data_00002_DA0.rate # (float32)
+data_00002_DA0.resolution # (float32)
+data_00002_DA0.comments # (str) HS#0:Stim set length: 12277000.00 \nRepeated Acq Cycle ID: 8387383.00 \nHS#0:Stim Wave Checksum: ...
+data_00002_DA0.description # (str) PLACEHOLDER
+data_00002_DA0.conversion # (float32)
+data_00002_DA0.offset # (float) 0.0
+data_00002_DA0.unit # (str) volts
+data_00002_DA0.data # (Dataset) shape (12297000,); dtype float32
+# data_00002_DA0.data[:] # Access all data
+# data_00002_DA0.data[0:n] # Access first n elements
+data_00002_DA0.starting_time_unit # (str) seconds
+data_00002_DA0.gain # (float32)
+data_00002_DA0.stimulus_description # (str) EXTPCllATT180424_DA_0
+data_00002_DA0.sweep_number # (uint32)
+data_00002_DA0.electrode # (IntracellularElectrode)
+data_00002_DA0.electrode.description # (str) Headstage 0
+data_00002_DA0.electrode.device # (Device)
+data_00002_DA0.electrode.device.description # (str) Harvard Bioscience (formerly HEKA/Instrutech) Model: ITC18USB
+data_00003_DA0 = stimulus["data_00003_DA0"]
+data_00003_DA0 # (VoltageClampStimulusSeries)
+data_00003_DA0.starting_time # (float64) 1691.018000125885
+data_00003_DA0.rate # (float32)
+data_00003_DA0.resolution # (float32)
+data_00003_DA0.comments # (str) HS#0:USER_Access Res. Smoke version: 1.00 \nHS#0:USER_Access Res. Smoke BL QC: On\nHS#0:USER_Acce...
+data_00003_DA0.description # (str) PLACEHOLDER
+data_00003_DA0.conversion # (float32)
+data_00003_DA0.offset # (float) 0.0
+data_00003_DA0.unit # (str) volts
+data_00003_DA0.data # (Dataset) shape (161000,); dtype float32
+# data_00003_DA0.data[:] # Access all data
+# data_00003_DA0.data[0:n] # Access first n elements
+data_00003_DA0.starting_time_unit # (str) seconds
+data_00003_DA0.gain # (float32)
+data_00003_DA0.stimulus_description # (str) EXTPBREAKN180424_DA_0
+data_00003_DA0.sweep_number # (uint32)
+data_00003_DA0.electrode # (IntracellularElectrode)
+data_00003_DA0.electrode.description # (str) Headstage 0
+data_00003_DA0.electrode.device # (Device)
+data_00003_DA0.electrode.device.description # (str) Harvard Bioscience (formerly HEKA/Instrutech) Model: ITC18USB
+data_00004_DA0 = stimulus["data_00004_DA0"]
+data_00004_DA0 # (CurrentClampStimulusSeries)
+data_00004_DA0.starting_time # (float64) 1770.6110000610352
+data_00004_DA0.rate # (float32)
+data_00004_DA0.resolution # (float32)
+data_00004_DA0.comments # (str) HS#0:DA Gain: 400.00 \nHS#0:AD Gain: 0.01 \nDelay onset auto: 147.49 ms\nSampling interval multip...
+data_00004_DA0.description # (str) PLACEHOLDER
+data_00004_DA0.conversion # (float32)
+data_00004_DA0.offset # (float) 0.0
+data_00004_DA0.unit # (str) amperes
+data_00004_DA0.data # (Dataset) shape (307375,); dtype float32
+# data_00004_DA0.data[:] # Access all data
+# data_00004_DA0.data[0:n] # Access first n elements
+data_00004_DA0.starting_time_unit # (str) seconds
+data_00004_DA0.gain # (float32)
+data_00004_DA0.stimulus_description # (str) X0NRMP_DA_0
+data_00004_DA0.sweep_number # (uint32)
+data_00004_DA0.electrode # (IntracellularElectrode)
+data_00004_DA0.electrode.description # (str) Headstage 0
+data_00004_DA0.electrode.device # (Device)
+data_00004_DA0.electrode.device.description # (str) Harvard Bioscience (formerly HEKA/Instrutech) Model: ITC18USB
+data_00005_DA0 = stimulus["data_00005_DA0"]
+data_00005_DA0 # (CurrentClampStimulusSeries)
+data_00005_DA0.starting_time # (float64) 1822.66100025177
+data_00005_DA0.rate # (float32)
+data_00005_DA0.resolution # (float32)
+data_00005_DA0.comments # (str) HS#0:Stim Scale Factor: -30.00 \nIndexing: On\nHS#0:Stim set length: 175000.00 \nRepeated Acq Cyc...
+data_00005_DA0.description # (str) PLACEHOLDER
+data_00005_DA0.conversion # (float32)
+data_00005_DA0.offset # (float) 0.0
+data_00005_DA0.unit # (str) amperes
+data_00005_DA0.data # (Dataset) shape (182375,); dtype float32
+# data_00005_DA0.data[:] # Access all data
+# data_00005_DA0.data[0:n] # Access first n elements
+data_00005_DA0.starting_time_unit # (str) seconds
+data_00005_DA0.gain # (float32)
+data_00005_DA0.stimulus_description # (str) X1PS_SubThresh_DA_0
+data_00005_DA0.sweep_number # (uint32)
+data_00005_DA0.electrode # (IntracellularElectrode)
+data_00005_DA0.electrode.description # (str) Headstage 0
+data_00005_DA0.electrode.device # (Device)
+data_00005_DA0.electrode.device.description # (str) Harvard Bioscience (formerly HEKA/Instrutech) Model: ITC18USB
+data_00006_DA0 = stimulus["data_00006_DA0"]
+data_00006_DA0 # (CurrentClampStimulusSeries)
+data_00006_DA0.starting_time # (float64) 1825.558000087738
+data_00006_DA0.rate # (float32)
+data_00006_DA0.resolution # (float32)
+data_00006_DA0.comments # (str) HS#0:Stim Scale Factor: -50.00 \nHS#0:Set Sweep Count: 1.00 \nAsync AD 2 [Set Temperature]: 43.84...
+data_00006_DA0.description # (str) PLACEHOLDER
+data_00006_DA0.conversion # (float32)
+data_00006_DA0.offset # (float) 0.0
+data_00006_DA0.unit # (str) amperes
+data_00006_DA0.data # (Dataset) shape (182375,); dtype float32
+# data_00006_DA0.data[:] # Access all data
+# data_00006_DA0.data[0:n] # Access first n elements
+data_00006_DA0.starting_time_unit # (str) seconds
+data_00006_DA0.gain # (float32)
+data_00006_DA0.stimulus_description # (str) X1PS_SubThresh_DA_0
+data_00006_DA0.sweep_number # (uint32)
+data_00006_DA0.electrode # (IntracellularElectrode)
+data_00006_DA0.electrode.description # (str) Headstage 0
+data_00006_DA0.electrode.device # (Device)
+data_00006_DA0.electrode.device.description # (str) Harvard Bioscience (formerly HEKA/Instrutech) Model: ITC18USB
+data_00007_DA0 = stimulus["data_00007_DA0"]
+data_00007_DA0 # (CurrentClampStimulusSeries)
+data_00007_DA0.starting_time # (float64) 1838.7249999046326
+data_00007_DA0.rate # (float32)
+data_00007_DA0.resolution # (float32)
+data_00007_DA0.comments # (str) HS#0:Set Sweep Count: 2.00 \nHS#0:I-Clamp Holding Level: -89.42 pA\nAsync AD 2 [Set Temperature]:...
+data_00007_DA0.description # (str) PLACEHOLDER
+data_00007_DA0.conversion # (float32)
+data_00007_DA0.offset # (float) 0.0
+data_00007_DA0.unit # (str) amperes
+data_00007_DA0.data # (Dataset) shape (182375,); dtype float32
+# data_00007_DA0.data[:] # Access all data
+# data_00007_DA0.data[0:n] # Access first n elements
+data_00007_DA0.starting_time_unit # (str) seconds
+data_00007_DA0.gain # (float32)
+data_00007_DA0.stimulus_description # (str) X1PS_SubThresh_DA_0
+data_00007_DA0.sweep_number # (uint32)
+data_00007_DA0.electrode # (IntracellularElectrode)
+data_00007_DA0.electrode.description # (str) Headstage 0
+data_00007_DA0.electrode.device # (Device)
+data_00007_DA0.electrode.device.description # (str) Harvard Bioscience (formerly HEKA/Instrutech) Model: ITC18USB
+data_00008_DA0 = stimulus["data_00008_DA0"]
+data_00008_DA0 # (CurrentClampStimulusSeries)
+data_00008_DA0.starting_time # (float64) 1842.621000289917
+data_00008_DA0.rate # (float32)
+data_00008_DA0.resolution # (float32)
+data_00008_DA0.comments # (str) HS#0:Set Sweep Count: 3.00 \nHS#0:USER_DA Scale Chk0 T-V BL: On\nHS#0:USER_DA Scale Chk0 T-V BL Q...
+data_00008_DA0.description # (str) PLACEHOLDER
+data_00008_DA0.conversion # (float32)
+data_00008_DA0.offset # (float) 0.0
+data_00008_DA0.unit # (str) amperes
+data_00008_DA0.data # (Dataset) shape (182375,); dtype float32
+# data_00008_DA0.data[:] # Access all data
+# data_00008_DA0.data[0:n] # Access first n elements
+data_00008_DA0.starting_time_unit # (str) seconds
+data_00008_DA0.gain # (float32)
+data_00008_DA0.stimulus_description # (str) X1PS_SubThresh_DA_0
+data_00008_DA0.sweep_number # (uint32)
+data_00008_DA0.electrode # (IntracellularElectrode)
+data_00008_DA0.electrode.description # (str) Headstage 0
+data_00008_DA0.electrode.device # (Device)
+data_00008_DA0.electrode.device.description # (str) Harvard Bioscience (formerly HEKA/Instrutech) Model: ITC18USB
+data_00009_DA0 = stimulus["data_00009_DA0"]
+data_00009_DA0 # (CurrentClampStimulusSeries)
+data_00009_DA0.starting_time # (float64) 1855.6529998779297
+data_00009_DA0.rate # (float32)
+data_00009_DA0.resolution # (float32)
+data_00009_DA0.comments # (str) HS#0:Set Sweep Count: 4.00 \nHS#0:I-Clamp Holding Level: -95.59 pA\nAsync AD 2 [Set Temperature]:...
+data_00009_DA0.description # (str) PLACEHOLDER
+data_00009_DA0.conversion # (float32)
+data_00009_DA0.offset # (float) 0.0
+data_00009_DA0.unit # (str) amperes
+data_00009_DA0.data # (Dataset) shape (182375,); dtype float32
+# data_00009_DA0.data[:] # Access all data
+# data_00009_DA0.data[0:n] # Access first n elements
+data_00009_DA0.starting_time_unit # (str) seconds
+data_00009_DA0.gain # (float32)
+data_00009_DA0.stimulus_description # (str) X1PS_SubThresh_DA_0
+data_00009_DA0.sweep_number # (uint32)
+data_00009_DA0.electrode # (IntracellularElectrode)
+data_00009_DA0.electrode.description # (str) Headstage 0
+data_00009_DA0.electrode.device # (Device)
+data_00009_DA0.electrode.device.description # (str) Harvard Bioscience (formerly HEKA/Instrutech) Model: ITC18USB
+data_00010_DA0 = stimulus["data_00010_DA0"]
+data_00010_DA0 # (CurrentClampStimulusSeries)
+data_00010_DA0.starting_time # (float64) 1858.539999961853
+data_00010_DA0.rate # (float32)
+data_00010_DA0.resolution # (float32)
+data_00010_DA0.comments # (str) HS#0:Stim Scale Factor: -70.00 \nHS#0:Set Sweep Count: 5.00 \nAsync AD 2 [Set Temperature]: 43.87...
+data_00010_DA0.description # (str) PLACEHOLDER
+data_00010_DA0.conversion # (float32)
+data_00010_DA0.offset # (float) 0.0
+data_00010_DA0.unit # (str) amperes
+data_00010_DA0.data # (Dataset) shape (182375,); dtype float32
+# data_00010_DA0.data[:] # Access all data
+# data_00010_DA0.data[0:n] # Access first n elements
+data_00010_DA0.starting_time_unit # (str) seconds
+data_00010_DA0.gain # (float32)
+data_00010_DA0.stimulus_description # (str) X1PS_SubThresh_DA_0
+data_00010_DA0.sweep_number # (uint32)
+data_00010_DA0.electrode # (IntracellularElectrode)
+data_00010_DA0.electrode.description # (str) Headstage 0
+data_00010_DA0.electrode.device # (Device)
+data_00010_DA0.electrode.device.description # (str) Harvard Bioscience (formerly HEKA/Instrutech) Model: ITC18USB
+data_00011_DA0 = stimulus["data_00011_DA0"]
+data_00011_DA0 # (CurrentClampStimulusSeries)
+data_00011_DA0.starting_time # (float64) 1862.5160002708435
+data_00011_DA0.rate # (float32)
+data_00011_DA0.resolution # (float32)
+data_00011_DA0.comments # (str) HS#0:Set Sweep Count: 6.00 \nAsync AD 2 [Set Temperature]: 43.84 degC\nHS#0:USER_DA Scale Chk0 T-...
+data_00011_DA0.description # (str) PLACEHOLDER
+data_00011_DA0.conversion # (float32)
+data_00011_DA0.offset # (float) 0.0
+data_00011_DA0.unit # (str) amperes
+data_00011_DA0.data # (Dataset) shape (182375,); dtype float32
+# data_00011_DA0.data[:] # Access all data
+# data_00011_DA0.data[0:n] # Access first n elements
+data_00011_DA0.starting_time_unit # (str) seconds
+data_00011_DA0.gain # (float32)
+data_00011_DA0.stimulus_description # (str) X1PS_SubThresh_DA_0
+data_00011_DA0.sweep_number # (uint32)
+data_00011_DA0.electrode # (IntracellularElectrode)
+data_00011_DA0.electrode.description # (str) Headstage 0
+data_00011_DA0.electrode.device # (Device)
+data_00011_DA0.electrode.device.description # (str) Harvard Bioscience (formerly HEKA/Instrutech) Model: ITC18USB
+data_00012_DA0 = stimulus["data_00012_DA0"]
+data_00012_DA0 # (CurrentClampStimulusSeries)
+data_00012_DA0.starting_time # (float64) 1875.6820001602173
+data_00012_DA0.rate # (float32)
+data_00012_DA0.resolution # (float32)
+data_00012_DA0.comments # (str) HS#0:Set Sweep Count: 7.00 \nHS#0:I-Clamp Holding Level: -102.41 pA\nAsync AD 2 [Set Temperature]...
+data_00012_DA0.description # (str) PLACEHOLDER
+data_00012_DA0.conversion # (float32)
+data_00012_DA0.offset # (float) 0.0
+data_00012_DA0.unit # (str) amperes
+data_00012_DA0.data # (Dataset) shape (182375,); dtype float32
+# data_00012_DA0.data[:] # Access all data
+# data_00012_DA0.data[0:n] # Access first n elements
+data_00012_DA0.starting_time_unit # (str) seconds
+data_00012_DA0.gain # (float32)
+data_00012_DA0.stimulus_description # (str) X1PS_SubThresh_DA_0
+data_00012_DA0.sweep_number # (uint32)
+data_00012_DA0.electrode # (IntracellularElectrode)
+data_00012_DA0.electrode.description # (str) Headstage 0
+data_00012_DA0.electrode.device # (Device)
+data_00012_DA0.electrode.device.description # (str) Harvard Bioscience (formerly HEKA/Instrutech) Model: ITC18USB
+data_00013_DA0 = stimulus["data_00013_DA0"]
+data_00013_DA0 # (CurrentClampStimulusSeries)
+data_00013_DA0.starting_time # (float64) 1879.606999874115
+data_00013_DA0.rate # (float32)
+data_00013_DA0.resolution # (float32)
+data_00013_DA0.comments # (str) HS#0:Set Sweep Count: 8.00 \nAsync AD 2 [Set Temperature]: 43.87 degC\nHS#0:USER_DA Scale Chk0 T-...
+data_00013_DA0.description # (str) PLACEHOLDER
+data_00013_DA0.conversion # (float32)
+data_00013_DA0.offset # (float) 0.0
+data_00013_DA0.unit # (str) amperes
+data_00013_DA0.data # (Dataset) shape (182375,); dtype float32
+# data_00013_DA0.data[:] # Access all data
+# data_00013_DA0.data[0:n] # Access first n elements
+data_00013_DA0.starting_time_unit # (str) seconds
+data_00013_DA0.gain # (float32)
+data_00013_DA0.stimulus_description # (str) X1PS_SubThresh_DA_0
+data_00013_DA0.sweep_number # (uint32)
+data_00013_DA0.electrode # (IntracellularElectrode)
+data_00013_DA0.electrode.description # (str) Headstage 0
+data_00013_DA0.electrode.device # (Device)
+data_00013_DA0.electrode.device.description # (str) Harvard Bioscience (formerly HEKA/Instrutech) Model: ITC18USB
+data_00014_DA0 = stimulus["data_00014_DA0"]
+data_00014_DA0 # (CurrentClampStimulusSeries)
+data_00014_DA0.starting_time # (float64) 1892.6399998664856
+data_00014_DA0.rate # (float32)
+data_00014_DA0.resolution # (float32)
+data_00014_DA0.comments # (str) HS#0:Set Sweep Count: 9.00 \nHS#0:I-Clamp Holding Level: -109.36 pA\nAsync AD 2 [Set Temperature]...
+data_00014_DA0.description # (str) PLACEHOLDER
+data_00014_DA0.conversion # (float32)
+data_00014_DA0.offset # (float) 0.0
+data_00014_DA0.unit # (str) amperes
+data_00014_DA0.data # (Dataset) shape (182375,); dtype float32
+# data_00014_DA0.data[:] # Access all data
+# data_00014_DA0.data[0:n] # Access first n elements
+data_00014_DA0.starting_time_unit # (str) seconds
+data_00014_DA0.gain # (float32)
+data_00014_DA0.stimulus_description # (str) X1PS_SubThresh_DA_0
+data_00014_DA0.sweep_number # (uint32)
+data_00014_DA0.electrode # (IntracellularElectrode)
+data_00014_DA0.electrode.description # (str) Headstage 0
+data_00014_DA0.electrode.device # (Device)
+data_00014_DA0.electrode.device.description # (str) Harvard Bioscience (formerly HEKA/Instrutech) Model: ITC18USB
+# ...
+# Other fields: data_00015_DA0, data_00016_DA0, data_00017_DA0, data_00018_DA0, data_00019_DA0, data_00020_DA0, data_00021_DA0, data_00022_DA0, data_00023_DA0, data_00024_DA0, data_00025_DA0, data_00026_DA0, data_00027_DA0, data_00028_DA0, data_00029_DA0, data_00030_DA0, data_00031_DA0, data_00032_DA0, data_00033_DA0, data_00034_DA0, data_00035_DA0, data_00036_DA0, data_00037_DA0, data_00038_DA0, data_00039_DA0, data_00040_DA0, data_00041_DA0, data_00042_DA0, data_00043_DA0, data_00044_DA0, data_00045_DA0, data_00046_DA0, data_00047_DA0, data_00048_DA0, data_00049_DA0, data_00050_DA0, data_00051_DA0, data_00052_DA0, data_00053_DA0, data_00054_DA0, data_00055_DA0, data_00056_DA0, data_00057_DA0, data_00058_DA0, data_00059_DA0, data_00060_DA0, data_00061_DA0, data_00062_DA0, data_00063_DA0, data_00064_DA0, data_00065_DA0, data_00066_DA0, data_00067_DA0, data_00068_DA0, data_00069_DA0
+# ...
+# Other fields: data_00015_DA0, data_00016_DA0, data_00017_DA0, data_00018_DA0, data_00019_DA0, data_00020_DA0, data_00021_DA0, data_00022_DA0, data_00023_DA0, data_00024_DA0, data_00025_DA0, data_00026_DA0, data_00027_DA0, data_00028_DA0, data_00029_DA0, data_00030_DA0, data_00031_DA0, data_00032_DA0, data_00033_DA0, data_00034_DA0, data_00035_DA0, data_00036_DA0, data_00037_DA0, data_00038_DA0, data_00039_DA0, data_00040_DA0, data_00041_DA0, data_00042_DA0, data_00043_DA0, data_00044_DA0, data_00045_DA0, data_00046_DA0, data_00047_DA0, data_00048_DA0, data_00049_DA0, data_00050_DA0, data_00051_DA0, data_00052_DA0, data_00053_DA0, data_00054_DA0, data_00055_DA0, data_00056_DA0, data_00057_DA0, data_00058_DA0, data_00059_DA0, data_00060_DA0, data_00061_DA0, data_00062_DA0, data_00063_DA0, data_00064_DA0, data_00065_DA0, data_00066_DA0, data_00067_DA0, data_00068_DA0, data_00069_DA0
+nwb.processing # (LabelledDict)
+processing = nwb.processing
+spikes = processing["spikes"]
+spikes # (ProcessingModule)
+spikes.description # (str) detected spikes
+spikes.data_interfaces # (LabelledDict)
+data_interfaces = spikes.data_interfaces
+Sweep_10 = data_interfaces["Sweep_10"]
+Sweep_10 # (TimeSeries)
+Sweep_10.resolution # (float64) -1.0
+Sweep_10.comments # (str) no comments
+Sweep_10.description # (str) no description
+Sweep_10.conversion # (float64) 1.0
+Sweep_10.offset # (float) 0.0
+Sweep_10.unit # (str) seconds
+Sweep_10.data # (Dataset) shape (0,); dtype float64
+# Sweep_10.data[:] # Access all data
+# Sweep_10.data[0:n] # Access first n elements
+Sweep_10.timestamps # (Dataset) shape (0,); dtype float64
+# Sweep_10.timestamps[:] # Access all data
+# Sweep_10.timestamps[0:n] # Access first n elements
+Sweep_10.timestamps_unit # (str) seconds
+Sweep_10.interval # (int) 1
+Sweep_12 = data_interfaces["Sweep_12"]
+Sweep_12 # (TimeSeries)
+Sweep_12.resolution # (float64) -1.0
+Sweep_12.comments # (str) no comments
+Sweep_12.description # (str) no description
+Sweep_12.conversion # (float64) 1.0
+Sweep_12.offset # (float) 0.0
+Sweep_12.unit # (str) seconds
+Sweep_12.data # (Dataset) shape (0,); dtype float64
+# Sweep_12.data[:] # Access all data
+# Sweep_12.data[0:n] # Access first n elements
+Sweep_12.timestamps # (Dataset) shape (0,); dtype float64
+# Sweep_12.timestamps[:] # Access all data
+# Sweep_12.timestamps[0:n] # Access first n elements
+Sweep_12.timestamps_unit # (str) seconds
+Sweep_12.interval # (int) 1
+Sweep_14 = data_interfaces["Sweep_14"]
+Sweep_14 # (TimeSeries)
+Sweep_14.resolution # (float64) -1.0
+Sweep_14.comments # (str) no comments
+Sweep_14.description # (str) no description
+Sweep_14.conversion # (float64) 1.0
+Sweep_14.offset # (float) 0.0
+Sweep_14.unit # (str) seconds
+Sweep_14.data # (Dataset) shape (0,); dtype float64
+# Sweep_14.data[:] # Access all data
+# Sweep_14.data[0:n] # Access first n elements
+Sweep_14.timestamps # (Dataset) shape (0,); dtype float64
+# Sweep_14.timestamps[:] # Access all data
+# Sweep_14.timestamps[0:n] # Access first n elements
+Sweep_14.timestamps_unit # (str) seconds
+Sweep_14.interval # (int) 1
+Sweep_15 = data_interfaces["Sweep_15"]
+Sweep_15 # (TimeSeries)
+Sweep_15.resolution # (float64) -1.0
+Sweep_15.comments # (str) no comments
+Sweep_15.description # (str) no description
+Sweep_15.conversion # (float64) 1.0
+Sweep_15.offset # (float) 0.0
+Sweep_15.unit # (str) seconds
+Sweep_15.data # (Dataset) shape (0,); dtype float64
+# Sweep_15.data[:] # Access all data
+# Sweep_15.data[0:n] # Access first n elements
+Sweep_15.timestamps # (Dataset) shape (0,); dtype float64
+# Sweep_15.timestamps[:] # Access all data
+# Sweep_15.timestamps[0:n] # Access first n elements
+Sweep_15.timestamps_unit # (str) seconds
+Sweep_15.interval # (int) 1
+Sweep_17 = data_interfaces["Sweep_17"]
+Sweep_17 # (TimeSeries)
+Sweep_17.resolution # (float64) -1.0
+Sweep_17.comments # (str) no comments
+Sweep_17.description # (str) no description
+Sweep_17.conversion # (float64) 1.0
+Sweep_17.offset # (float) 0.0
+Sweep_17.unit # (str) seconds
+Sweep_17.data # (Dataset) shape (0,); dtype float64
+# Sweep_17.data[:] # Access all data
+# Sweep_17.data[0:n] # Access first n elements
+Sweep_17.timestamps # (Dataset) shape (0,); dtype float64
+# Sweep_17.timestamps[:] # Access all data
+# Sweep_17.timestamps[0:n] # Access first n elements
+Sweep_17.timestamps_unit # (str) seconds
+Sweep_17.interval # (int) 1
+Sweep_18 = data_interfaces["Sweep_18"]
+Sweep_18 # (TimeSeries)
+Sweep_18.resolution # (float64) -1.0
+Sweep_18.comments # (str) no comments
+Sweep_18.description # (str) no description
+Sweep_18.conversion # (float64) 1.0
+Sweep_18.offset # (float) 0.0
+Sweep_18.unit # (str) seconds
+Sweep_18.data # (Dataset) shape (0,); dtype float64
+# Sweep_18.data[:] # Access all data
+# Sweep_18.data[0:n] # Access first n elements
+Sweep_18.timestamps # (Dataset) shape (0,); dtype float64
+# Sweep_18.timestamps[:] # Access all data
+# Sweep_18.timestamps[0:n] # Access first n elements
+Sweep_18.timestamps_unit # (str) seconds
+Sweep_18.interval # (int) 1
+Sweep_20 = data_interfaces["Sweep_20"]
+Sweep_20 # (TimeSeries)
+Sweep_20.resolution # (float64) -1.0
+Sweep_20.comments # (str) no comments
+Sweep_20.description # (str) no description
+Sweep_20.conversion # (float64) 1.0
+Sweep_20.offset # (float) 0.0
+Sweep_20.unit # (str) seconds
+Sweep_20.data # (Dataset) shape (0,); dtype float64
+# Sweep_20.data[:] # Access all data
+# Sweep_20.data[0:n] # Access first n elements
+Sweep_20.timestamps # (Dataset) shape (0,); dtype float64
+# Sweep_20.timestamps[:] # Access all data
+# Sweep_20.timestamps[0:n] # Access first n elements
+Sweep_20.timestamps_unit # (str) seconds
+Sweep_20.interval # (int) 1
+Sweep_21 = data_interfaces["Sweep_21"]
+Sweep_21 # (TimeSeries)
+Sweep_21.resolution # (float64) -1.0
+Sweep_21.comments # (str) no comments
+Sweep_21.description # (str) no description
+Sweep_21.conversion # (float64) 1.0
+Sweep_21.offset # (float) 0.0
+Sweep_21.unit # (str) seconds
+Sweep_21.data # (Dataset) shape (0,); dtype float64
+# Sweep_21.data[:] # Access all data
+# Sweep_21.data[0:n] # Access first n elements
+Sweep_21.timestamps # (Dataset) shape (0,); dtype float64
+# Sweep_21.timestamps[:] # Access all data
+# Sweep_21.timestamps[0:n] # Access first n elements
+Sweep_21.timestamps_unit # (str) seconds
+Sweep_21.interval # (int) 1
+Sweep_23 = data_interfaces["Sweep_23"]
+Sweep_23 # (TimeSeries)
+Sweep_23.resolution # (float64) -1.0
+Sweep_23.comments # (str) no comments
+Sweep_23.description # (str) no description
+Sweep_23.conversion # (float64) 1.0
+Sweep_23.offset # (float) 0.0
+Sweep_23.unit # (str) seconds
+Sweep_23.data # (Dataset) shape (0,); dtype float64
+# Sweep_23.data[:] # Access all data
+# Sweep_23.data[0:n] # Access first n elements
+Sweep_23.timestamps # (Dataset) shape (0,); dtype float64
+# Sweep_23.timestamps[:] # Access all data
+# Sweep_23.timestamps[0:n] # Access first n elements
+Sweep_23.timestamps_unit # (str) seconds
+Sweep_23.interval # (int) 1
+Sweep_26 = data_interfaces["Sweep_26"]
+Sweep_26 # (TimeSeries)
+Sweep_26.resolution # (float64) -1.0
+Sweep_26.comments # (str) no comments
+Sweep_26.description # (str) no description
+Sweep_26.conversion # (float64) 1.0
+Sweep_26.offset # (float) 0.0
+Sweep_26.unit # (str) seconds
+Sweep_26.data # (Dataset) shape (0,); dtype float64
+# Sweep_26.data[:] # Access all data
+# Sweep_26.data[0:n] # Access first n elements
+Sweep_26.timestamps # (Dataset) shape (0,); dtype float64
+# Sweep_26.timestamps[:] # Access all data
+# Sweep_26.timestamps[0:n] # Access first n elements
+Sweep_26.timestamps_unit # (str) seconds
+Sweep_26.interval # (int) 1
+Sweep_33 = data_interfaces["Sweep_33"]
+Sweep_33 # (TimeSeries)
+Sweep_33.resolution # (float64) -1.0
+Sweep_33.comments # (str) no comments
+Sweep_33.description # (str) no description
+Sweep_33.conversion # (float64) 1.0
+Sweep_33.offset # (float) 0.0
+Sweep_33.unit # (str) seconds
+Sweep_33.data # (Dataset) shape (1,); dtype float64
+# Sweep_33.data[:] # Access all data
+# Sweep_33.data[0:n] # Access first n elements
+# First few values of Sweep_33.data: [0.5954]
+Sweep_33.timestamps # (Dataset) shape (1,); dtype float64
+# Sweep_33.timestamps[:] # Access all data
+# Sweep_33.timestamps[0:n] # Access first n elements
+# First few values of Sweep_33.timestamps: [0.5954]
+Sweep_33.timestamps_unit # (str) seconds
+Sweep_33.interval # (int) 1
+Sweep_34 = data_interfaces["Sweep_34"]
+Sweep_34 # (TimeSeries)
+Sweep_34.resolution # (float64) -1.0
+Sweep_34.comments # (str) no comments
+Sweep_34.description # (str) no description
+Sweep_34.conversion # (float64) 1.0
+Sweep_34.offset # (float) 0.0
+Sweep_34.unit # (str) seconds
+Sweep_34.data # (Dataset) shape (1,); dtype float64
+# Sweep_34.data[:] # Access all data
+# Sweep_34.data[0:n] # Access first n elements
+# First few values of Sweep_34.data: [0.63962]
+Sweep_34.timestamps # (Dataset) shape (1,); dtype float64
+# Sweep_34.timestamps[:] # Access all data
+# Sweep_34.timestamps[0:n] # Access first n elements
+# First few values of Sweep_34.timestamps: [0.63962]
+Sweep_34.timestamps_unit # (str) seconds
+Sweep_34.interval # (int) 1
+Sweep_36 = data_interfaces["Sweep_36"]
+Sweep_36 # (TimeSeries)
+Sweep_36.resolution # (float64) -1.0
+Sweep_36.comments # (str) no comments
+Sweep_36.description # (str) no description
+Sweep_36.conversion # (float64) 1.0
+Sweep_36.offset # (float) 0.0
+Sweep_36.unit # (str) seconds
+Sweep_36.data # (Dataset) shape (1,); dtype float64
+# Sweep_36.data[:] # Access all data
+# Sweep_36.data[0:n] # Access first n elements
+# First few values of Sweep_36.data: [0.56728]
+Sweep_36.timestamps # (Dataset) shape (1,); dtype float64
+# Sweep_36.timestamps[:] # Access all data
+# Sweep_36.timestamps[0:n] # Access first n elements
+# First few values of Sweep_36.timestamps: [0.56728]
+Sweep_36.timestamps_unit # (str) seconds
+Sweep_36.interval # (int) 1
+Sweep_37 = data_interfaces["Sweep_37"]
+Sweep_37 # (TimeSeries)
+Sweep_37.resolution # (float64) -1.0
+Sweep_37.comments # (str) no comments
+Sweep_37.description # (str) no description
+Sweep_37.conversion # (float64) 1.0
+Sweep_37.offset # (float) 0.0
+Sweep_37.unit # (str) seconds
+Sweep_37.data # (Dataset) shape (1,); dtype float64
+# Sweep_37.data[:] # Access all data
+# Sweep_37.data[0:n] # Access first n elements
+# First few values of Sweep_37.data: [0.55302]
+Sweep_37.timestamps # (Dataset) shape (1,); dtype float64
+# Sweep_37.timestamps[:] # Access all data
+# Sweep_37.timestamps[0:n] # Access first n elements
+# First few values of Sweep_37.timestamps: [0.55302]
+Sweep_37.timestamps_unit # (str) seconds
+Sweep_37.interval # (int) 1
+Sweep_38 = data_interfaces["Sweep_38"]
+Sweep_38 # (TimeSeries)
+Sweep_38.resolution # (float64) -1.0
+Sweep_38.comments # (str) no comments
+Sweep_38.description # (str) no description
+Sweep_38.conversion # (float64) 1.0
+Sweep_38.offset # (float) 0.0
+Sweep_38.unit # (str) seconds
+Sweep_38.data # (Dataset) shape (2,); dtype float64
+# Sweep_38.data[:] # Access all data
+# Sweep_38.data[0:n] # Access first n elements
+# First few values of Sweep_38.data: [0.54358 0.63638]
+Sweep_38.timestamps # (Dataset) shape (2,); dtype float64
+# Sweep_38.timestamps[:] # Access all data
+# Sweep_38.timestamps[0:n] # Access first n elements
+# First few values of Sweep_38.timestamps: [0.54358 0.63638]
+Sweep_38.timestamps_unit # (str) seconds
+Sweep_38.interval # (int) 1
+# ...
+# Other fields: Sweep_39, Sweep_41, Sweep_42, Sweep_5, Sweep_62, Sweep_63, Sweep_64, Sweep_65, Sweep_67, Sweep_7, Sweep_9
+# ...
+# Other fields: Sweep_39, Sweep_41, Sweep_42, Sweep_5, Sweep_62, Sweep_63, Sweep_64, Sweep_65, Sweep_67, Sweep_7, Sweep_9
+nwb.devices # (LabelledDict)
+devices = nwb.devices
+device_ITC18USB_Dev_0 = devices["device_ITC18USB_Dev_0"]
+device_ITC18USB_Dev_0 # (Device)
+device_ITC18USB_Dev_0.description # (str) Harvard Bioscience (formerly HEKA/Instrutech) Model: ITC18USB
+nwb.intervals # (LabelledDict)
+intervals = nwb.intervals
+epochs = intervals["epochs"]
+epochs # (TimeIntervals)
+epochs.description # (str) experimental epochs
+epochs.colnames # (tuple) ['start_time', 'stop_time', 'tags', 'timeseries', 'treelevel']
+epochs.columns # (tuple)
+epochs.id # (ElementIdentifiers)
+# epochs.to_dataframe() # (DataFrame) Convert to a pandas DataFrame with 681 rows and 7 columns
+# epochs.to_dataframe().head() # (DataFrame) Show the first few rows of the pandas DataFrame
+epochs.start_time # (VectorData) Start time of epoch, in seconds
+epochs.stop_time # (VectorData) Stop time of epoch, in seconds
+epochs.tags # (VectorIndex) Index for VectorData 'tags'
+# epochs.tags_index[0] # (ndarray)
+# epochs.tags_index[1] # (ndarray)
+# epochs.tags_index[2] # (ndarray)
+# epochs.tags_index[3] # (ndarray)
+# ...
+epochs.timeseries # (VectorIndex) Index for VectorData 'timeseries'
+# epochs.timeseries_index[0] # (list)
+# epochs.timeseries_index[1] # (list)
+# epochs.timeseries_index[2] # (list)
+# epochs.timeseries_index[3] # (list)
+# ...
+epochs.treelevel # (VectorData) Tree Level
+nwb.session_id # (str) 1207262032
+nwb.institution # (str) Allen Institute for Brain Science
+nwb.data_collection # (str)   Specified StimSet file at C:/ProgramData/AllenInstitute/MIES/MIESHDF5Files/SavedStimSets/PS_Sti...
+nwb.source_script # (str) MIES
+nwb.source_script_file_name # (str) 2022_09_06_104445
+nwb.icephys_filtering # (str) PLACEHOLDER
+nwb.subject # (Subject)
+nwb.subject.age # (str) P21170.0D
+nwb.subject.genotype # (str) 
+nwb.subject.sex # (str) M
+nwb.subject.species # (str) Homo sapiens
+nwb.subject.subject_id # (str) 1203384279
+nwb.sweep_table # (SweepTable)
+nwb.sweep_table.description # (str) A sweep table groups different PatchClampSeries together.
+nwb.sweep_table.colnames # (tuple) ['series', 'sweep_number']
+nwb.sweep_table.columns # (tuple)
+nwb.sweep_table.id # (ElementIdentifiers)
+# nwb.sweep_table.to_dataframe() # (DataFrame) Convert to a pandas DataFrame with 140 rows and 3 columns
+# nwb.sweep_table.to_dataframe().head() # (DataFrame) Show the first few rows of the pandas DataFrame
+nwb.sweep_table.series # (VectorIndex) Index for VectorData 'series'
+# nwb.sweep_table.series_index[0] # (list)
+# nwb.sweep_table.series_index[1] # (list)
+# nwb.sweep_table.series_index[2] # (list)
+# nwb.sweep_table.series_index[3] # (list)
+# ...
+nwb.sweep_table.sweep_number # (VectorData) Sweep number of the PatchClampSeries in that row.
+nwb.epochs # (TimeIntervals)
+nwb.epochs.description # (str) experimental epochs
+nwb.epochs.colnames # (tuple) ['start_time', 'stop_time', 'tags', 'timeseries', 'treelevel']
+nwb.epochs.columns # (tuple)
+nwb.epochs.id # (ElementIdentifiers)
+# nwb.epochs.to_dataframe() # (DataFrame) Convert to a pandas DataFrame with 681 rows and 7 columns
+# nwb.epochs.to_dataframe().head() # (DataFrame) Show the first few rows of the pandas DataFrame
+nwb.epochs.start_time # (VectorData) Start time of epoch, in seconds
+nwb.epochs.stop_time # (VectorData) Stop time of epoch, in seconds
+nwb.epochs.tags # (VectorIndex) Index for VectorData 'tags'
+# nwb.epochs.tags_index[0] # (ndarray)
+# nwb.epochs.tags_index[1] # (ndarray)
+# nwb.epochs.tags_index[2] # (ndarray)
+# nwb.epochs.tags_index[3] # (ndarray)
+# ...
+nwb.epochs.timeseries # (VectorIndex) Index for VectorData 'timeseries'
+# nwb.epochs.timeseries_index[0] # (list)
+# nwb.epochs.timeseries_index[1] # (list)
+# nwb.epochs.timeseries_index[2] # (list)
+# nwb.epochs.timeseries_index[3] # (list)
+# ...
+nwb.epochs.treelevel # (VectorData) Tree Level
+
+STDERR:
+/home/magland/miniconda3/envs/dev/lib/python3.12/site-packages/hdmf/spec/namespace.py:535: UserWarning: Ignoring cached namespace 'hdmf-common' version 1.1.3 because version 1.8.0 is already loaded.
+  warn("Ignoring cached namespace '%s' version %s because version %s is already loaded."
+/home/magland/miniconda3/envs/dev/lib/python3.12/site-packages/hdmf/spec/namespace.py:535: UserWarning: Ignoring cached namespace 'core' version 2.2.4 because version 2.7.0 is already loaded.
+  warn("Ignoring cached namespace '%s' version %s because version %s is already loaded."
+/home/magland/src/dandi-ai-notebooks-3/packages/get-nwbfile-info/src/get_nwbfile_info/core.py:346: UserWarning: Warning: Duplicate entries found in the results.
+  warnings.warn("Warning: Duplicate entries found in the results.")
+
+=========================================
+
+Using model: google/gemini-2.5-flash-preview
+Num. messages in conversation: 8
+Submitting completion request...
+Processing response...
+I have successfully retrieved the Dandiset metadata, the list of assets, and the information for the chosen NWB file (`sub-1203384279/sub-1203384279_ses-1207262032_icephys.nwb`). I have the necessary information to write the notebook.
+
+The next step is to write the content of the notebook to `notebook.py`. I will use the `write_to_file` tool.
+The notebook needs to include:
+- A markdown title.
+- An AI generation warning.
+- Dandiset overview and link.
+- Notebook summary.
+- Required packages list.
+- Code to load Dandiset.
+- Code to load the selected NWB file, explain the path/URL, provide neurosift link, and show some metadata.
+- Markdown summary of NWB content (using information from `nwb-file-info` output).
+- Code to load and visualize some data from the NWB file. I will pick one of the `CurrentClampSeries` data streams and its corresponding `CurrentClampStimulusSeries` from the `acquisition` and `stimulus` sections respectively, as these are likely intended for visualization in a patch-seq experiment. Based on the `nwb-file-info` output, 'data_00005_AD0' and 'data_00005_DA0' look like good candidates. They are `CurrentClampSeries` and `CurrentClampStimulusSeries` and have shape (182375,), which is a reasonable size for plotting.
+- Summarize findings and future directions.
+- Explanatory markdown cells throughout.
+
+The required packages appear to be `itertools`, `dandi.dandiapi`, `pynwb`, `h5py`, `remfile`, `numpy`, and `matplotlib`.
+
+I will structure the notebook using `# %% [markdown]` for markdown cells and `# %%` for code cells as requested.
+
+Tool: write_to_file
+Params: {'path': 'notebook.py', 'content': '# %% [markdown]\n# # Exploring Dandiset 001359: Human Patch-seq Data\n\n# %% [markdown]\n# **Note:** This notebook was generated by an AI and has not been fully verified. Users should exercise caution when interpreting the code or results and are encouraged to independently verify any critical findings.\n\n# %% [markdown]\n# ## Dandiset Overview\n#\n# This notebook explores Dandiset 001359, titled "20250331_AIBS_Patchseq_human", version 0.250401.1603. This dataset contains Patch-seq data from human subjects, including intracellular electrophysiology recordings.\n#\n# You can find more information about this Dandiset on the DANDI Archive: https://dandiarchive.org/dandiset/001359/0.250401.1603\n\n# %% [markdown]\n# ## Notebook Summary\n#\n# This notebook will demonstrate how to:\n# 1. Load the Dandiset using the DANDI API.\n# 2. Access and explore an NWB file within the Dandiset.\n# 3. Load and visualize intracellular electrophysiology data (voltage/current traces and stimuli) from the NWB file.\n\n# %% [markdown]\n# ## Required Packages\n#\n# This notebook requires the following packages:\n# - `itertools`\n# - `dandi`\n# - `pynwb`\n# - `h5py`\n# - `remfile`\n# - `numpy`\n# - `matplotlib`\n\n# %%\nfrom itertools import islice\nfrom dandi.dandiapi import DandiAPIClient\nimport pynwb\nimport h5py\nimport remfile\nimport numpy as np\nimport matplotlib.pyplot as plt\n\n# %% [markdown]\n# ## Loading the Dandiset\n#\n# We will connect to the DANDI archive and access the specified Dandiset.\n\n# %%\n# Connect to DANDI archive\nclient = DandiAPIClient()\ndandiset = client.get_dandiset("001359", "0.250401.1603")\n\n# Print basic information about the Dandiset\nmetadata = dandiset.get_raw_metadata()\nprint(f"Dandiset name: {metadata[\'name\']}")\nprint(f"Dandiset URL: {metadata[\'url\']}")\n\n# List some assets in the Dandiset\nassets = dandiset.get_assets()\nprint("\\nFirst 5 assets:")\nfor asset in islice(assets, 5):\n    print(f"- {asset.path} (ID: {asset.identifier})")\n\n# %% [markdown]\n# ## Exploring an NWB File\n#\n# We will now load a specific NWB file from the Dandiset and examine its contents.\n#\n# The chosen NWB file is: `sub-1203384279/sub-1203384279_ses-1207262032_icephys.nwb`.\n#\n# The URL for this asset is: `https://api.dandiarchive.org/api/assets/c269347a-2d4b-4b6a-8b7c-2ef303ff503d/download/`\n#\n# You can explore this NWB file further on NeuroSift: https://neurosift.app/nwb?url=https://api.dandiarchive.org/api/assets/c269347a-2d4b-4b6a-8b7c-2ef303ff503d/download/&dandisetId=001359&dandisetVersion=draft\n\n# %%\n# Load the specific NWB file\nurl = "https://api.dandiarchive.org/api/assets/c269347a-2d4b-4b6a-8b7c-2ef303ff503d/download/"\nremote_file = remfile.File(url)\nh5_file = h5py.File(remote_file)\nio = pynwb.NWBHDF5IO(file=h5_file)\nnwb = io.read()\n\n# Show some basic metadata from the NWB file\nprint(f"NWB file identifier: {nwb.identifier}")\nprint(f"Session description: {nwb.session_description}")\nprint(f"Session start time: {nwb.session_start_time}")\nprint(f"Subject ID: {nwb.subject.subject_id}")\nprint(f"Subject species: {nwb.subject.species}")\nprint(f"Subject sex: {nwb.subject.sex}")\nprint(f"Subject age: {nwb.subject.age}")\n\n# %% [markdown]\n# ## NWB File Contents Summary\n#\n# The selected NWB file contains intracellular electrophysiology data from a human subject. Key components include:\n#\n# *   **`icephys_electrodes`**: Information about the recording electrode (Headstage 0).\n# *   **`acquisition`**: Recorded voltage or current data series (`VoltageClampSeries`, `CurrentClampSeries`).\n# *   **`stimulus`**: Applied stimulus data series (`VoltageClampStimulusSeries`, `CurrentClampStimulusSeries`).\n# *   **`processing/spikes`**: Detected spike times (Note: The shapes shown indicate these datasets might be empty for some sweeps).\n# *   **`intervals/epochs`**: Time intervals defining experimental epochs.\n# *   **`devices`**: Information about the recording device (Harvard Bioscience ITC18USB).\n# *   **`sweep_table`**: A table grouping different PatchClampSeries by sweep number.\n\n# %% [markdown]\n# ## Visualizing Electrophysiology Data\n#\n# We will now load and visualize some of the acquired and stimulus data from the NWB file. We\'ll focus on `data_00005_AD0` (CurrentClampSeries) and `data_00005_DA0` (CurrentClampStimulusSeries) as an example.\n\n# %%\n# Set seaborn theme for better plot aesthetics\nimport seaborn as sns\nsns.set_theme()\n\n# Get the data and stimulus series\ntry:\n    acquisition_series = nwb.acquisition["data_00005_AD0"]\n    stimulus_series = nwb.stimulus["data_00005_DA0"]\n\n    # Get data and timestamps - only load a subset if the dataset is large\n    # Check shape to avoid loading excessive data\n    if acquisition_series.data.shape[0] > 1000000: # Example threshold, adjust as needed\n        print("Loading a subset of data due to large size.")\n        # Load first 1000000 points and corresponding timestamps\n        data = acquisition_series.data[:1000000]\n        # Calculate timestamps for the subset\n        dt = 1.0 / acquisition_series.rate\n        timestamps = acquisition_series.starting_time + np.arange(len(data)) * dt\n        stimulus_data = stimulus_series.data[:1000000]\n        stimulus_timestamps = stimulus_series.starting_time + np.arange(len(stimulus_data)) * dt\n    else:\n        # Load all data if not excessively large\n        data = acquisition_series.data[:]\n        # Calculate timestamps - Do not load all timestamps if data was subsetted\n        if acquisition_series.timestamps is not None:\n             # if timestamps are explicitly stored\n            if acquisition_series.timestamps.shape[0] == acquisition_series.data.shape[0]:\n                 timestamps = acquisition_series.timestamps[:]\n            else:\n                 # Timestamps might be a different shape or not present, calculate from rate\n                 dt = 1.0 / acquisition_series.rate\n                 timestamps = acquisition_series.starting_time + np.arange(len(data)) * dt\n        else:\n            # Calculate timestamps from rate\n            dt = 1.0 / acquisition_series.rate\n            timestamps = acquisition_series.starting_time + np.arange(len(data)) * dt\n\n        stimulus_data = stimulus_series.data[:]\n        if stimulus_series.timestamps is not None:\n             # if timestamps are explicitly stored\n            if stimulus_series.timestamps.shape[0] == stimulus_series.data.shape[0]:\n                 stimulus_timestamps = stimulus_series.timestamps[:]\n            else:\n                 # Timestamps might be a different shape or not present, calculate from rate\n                 dt = 1.0 / stimulus_series.rate\n                 stimulus_timestamps = stimulus_series.starting_time + np.arange(len(stimulus_data)) * dt\n        else:\n            # Calculate timestamps from rate\n            dt = 1.0 / stimulus_series.rate\n            stimulus_timestamps = stimulus_series.starting_time + np.arange(len(stimulus_data)) * dt\n\n\n    print(f"Loaded {len(data)} data points from {acquisition_series.name}.")\n    print(f"Data unit: {acquisition_series.unit}")\n    print(f"Stimulus unit: {stimulus_series.unit}")\n\n    # Create plots\n    fig, ax1 = plt.subplots(figsize=(12, 6))\n\n    # Plot acquisition data\n    ax1.plot(timestamps, data, label=\'Acquired Data\')\n    ax1.set_xlabel(\'Time (seconds)\')\n    ax1.set_ylabel(f\'Voltage/Current ({acquisition_series.unit})\', color=\'blue\')\n    ax1.tick_params(axis=\'y\', labelcolor=\'blue\')\n\n    # Create a second y-axis for stimulus data\n    ax2 = ax1.twinx()\n    ax2.plot(stimulus_timestamps, stimulus_data, color=\'red\', label=\'Stimulus\')\n    ax2.set_ylabel(f\'Stimulus ({stimulus_series.unit})\', color=\'red\')\n    ax2.tick_params(axis=\'y\', labelcolor=\'red\')\n\n    plt.title(f"Acquired Data and Stimulus for {acquisition_series.name}")\n    fig.tight_layout() # Adjust layout to prevent labels overlapping\n    plt.show()\n\nexcept KeyError as e:\n    print(f"Could not find expected data series in the NWB file: {e}")\n    print("Please check the available data interfaces in the NWB file.")\nexcept Exception as e:\n    print(f"An error occurred while visualizing the data: {e}")\n    print("It\'s possible that the data structure or content is not in the expected format.")\n\n\n# %% [markdown]\n# ## Summary and Future Directions\n#\n# This notebook provided a basic introduction to accessing and visualizing intracellular electrophysiology data from Dandiset 001359. We demonstrated how to load the Dandiset, navigate an NWB file, and plot acquired signals alongside the applied stimulus.\n#\n# Possible future directions for analysis include:\n#\n# *   Exploring other NWB files in the Dandiset.\n# *   Analyzing different types of data within the NWB files (e.g., spike times if present).\n# *   Implementing more sophisticated analysis techniques, such as calculating resting membrane potential, input resistance, or analyzing action potential features.\n# *   Integrating the electrophysiology data with other potential data modalities in the Dandiset (if available and relevant).\n#\n# Remember that this is a large and rich dataset, and this notebook only scratches the surface of potential explorations.'}
+================================
+Content to be written to notebook.py:
+# %% [markdown]
+# # Exploring Dandiset 001359: Human Patch-seq Data
+
+# %% [markdown]
+# **Note:** This notebook was generated by an AI and has not been fully verified. Users should exercise caution when interpreting the code or results and are encouraged to independently verify any critical findings.
+
+# %% [markdown]
+# ## Dandiset Overview
+#
+# This notebook explores Dandiset 001359, titled "20250331_AIBS_Patchseq_human", version 0.250401.1603. This dataset contains Patch-seq data from human subjects, including intracellular electrophysiology recordings.
+#
+# You can find more information about this Dandiset on the DANDI Archive: https://dandiarchive.org/dandiset/001359/0.250401.1603
+
+# %% [markdown]
+# ## Notebook Summary
+#
+# This notebook will demonstrate how to:
+# 1. Load the Dandiset using the DANDI API.
+# 2. Access and explore an NWB file within the Dandiset.
+# 3. Load and visualize intracellular electrophysiology data (voltage/current traces and stimuli) from the NWB file.
+
+# %% [markdown]
+# ## Required Packages
+#
+# This notebook requires the following packages:
+# - `itertools`
+# - `dandi`
+# - `pynwb`
+# - `h5py`
+# - `remfile`
+# - `numpy`
+# - `matplotlib`
+
+# %%
+from itertools import islice
+from dandi.dandiapi import DandiAPIClient
+import pynwb
+import h5py
+import remfile
+import numpy as np
+import matplotlib.pyplot as plt
+
+# %% [markdown]
+# ## Loading the Dandiset
+#
+# We will connect to the DANDI archive and access the specified Dandiset.
+
+# %%
+# Connect to DANDI archive
+client = DandiAPIClient()
+dandiset = client.get_dandiset("001359", "0.250401.1603")
+
+# Print basic information about the Dandiset
+metadata = dandiset.get_raw_metadata()
+print(f"Dandiset name: {metadata['name']}")
+print(f"Dandiset URL: {metadata['url']}")
+
+# List some assets in the Dandiset
+assets = dandiset.get_assets()
+print("\nFirst 5 assets:")
+for asset in islice(assets, 5):
+    print(f"- {asset.path} (ID: {asset.identifier})")
+
+# %% [markdown]
+# ## Exploring an NWB File
+#
+# We will now load a specific NWB file from the Dandiset and examine its contents.
+#
+# The chosen NWB file is: `sub-1203384279/sub-1203384279_ses-1207262032_icephys.nwb`.
+#
+# The URL for this asset is: `https://api.dandiarchive.org/api/assets/c269347a-2d4b-4b6a-8b7c-2ef303ff503d/download/`
+#
+# You can explore this NWB file further on NeuroSift: https://neurosift.app/nwb?url=https://api.dandiarchive.org/api/assets/c269347a-2d4b-4b6a-8b7c-2ef303ff503d/download/&dandisetId=001359&dandisetVersion=draft
+
+# %%
+# Load the specific NWB file
+url = "https://api.dandiarchive.org/api/assets/c269347a-2d4b-4b6a-8b7c-2ef303ff503d/download/"
+remote_file = remfile.File(url)
+h5_file = h5py.File(remote_file)
+io = pynwb.NWBHDF5IO(file=h5_file)
+nwb = io.read()
+
+# Show some basic metadata from the NWB file
+print(f"NWB file identifier: {nwb.identifier}")
+print(f"Session description: {nwb.session_description}")
+print(f"Session start time: {nwb.session_start_time}")
+print(f"Subject ID: {nwb.subject.subject_id}")
+print(f"Subject species: {nwb.subject.species}")
+print(f"Subject sex: {nwb.subject.sex}")
+print(f"Subject age: {nwb.subject.age}")
+
+# %% [markdown]
+# ## NWB File Contents Summary
+#
+# The selected NWB file contains intracellular electrophysiology data from a human subject. Key components include:
+#
+# *   **`icephys_electrodes`**: Information about the recording electrode (Headstage 0).
+# *   **`acquisition`**: Recorded voltage or current data series (`VoltageClampSeries`, `CurrentClampSeries`).
+# *   **`stimulus`**: Applied stimulus data series (`VoltageClampStimulusSeries`, `CurrentClampStimulusSeries`).
+# *   **`processing/spikes`**: Detected spike times (Note: The shapes shown indicate these datasets might be empty for some sweeps).
+# *   **`intervals/epochs`**: Time intervals defining experimental epochs.
+# *   **`devices`**: Information about the recording device (Harvard Bioscience ITC18USB).
+# *   **`sweep_table`**: A table grouping different PatchClampSeries by sweep number.
+
+# %% [markdown]
+# ## Visualizing Electrophysiology Data
+#
+# We will now load and visualize some of the acquired and stimulus data from the NWB file. We'll focus on `data_00005_AD0` (CurrentClampSeries) and `data_00005_DA0` (CurrentClampStimulusSeries) as an example.
+
+# %%
+# Set seaborn theme for better plot aesthetics
+import seaborn as sns
+sns.set_theme()
+
+# Get the data and stimulus series
+try:
+    acquisition_series = nwb.acquisition["data_00005_AD0"]
+    stimulus_series = nwb.stimulus["data_00005_DA0"]
+
+    # Get data and timestamps - only load a subset if the dataset is large
+    # Check shape to avoid loading excessive data
+    if acquisition_series.data.shape[0] > 1000000: # Example threshold, adjust as needed
+        print("Loading a subset of data due to large size.")
+        # Load first 1000000 points and corresponding timestamps
+        data = acquisition_series.data[:1000000]
+        # Calculate timestamps for the subset
+        dt = 1.0 / acquisition_series.rate
+        timestamps = acquisition_series.starting_time + np.arange(len(data)) * dt
+        stimulus_data = stimulus_series.data[:1000000]
+        stimulus_timestamps = stimulus_series.starting_time + np.arange(len(stimulus_data)) * dt
+    else:
+        # Load all data if not excessively large
+        data = acquisition_series.data[:]
+        # Calculate timestamps - Do not load all timestamps if data was subsetted
+        if acquisition_series.timestamps is not None:
+             # if timestamps are explicitly stored
+            if acquisition_series.timestamps.shape[0] == acquisition_series.data.shape[0]:
+                 timestamps = acquisition_series.timestamps[:]
+            else:
+                 # Timestamps might be a different shape or not present, calculate from rate
+                 dt = 1.0 / acquisition_series.rate
+                 timestamps = acquisition_series.starting_time + np.arange(len(data)) * dt
+        else:
+            # Calculate timestamps from rate
+            dt = 1.0 / acquisition_series.rate
+            timestamps = acquisition_series.starting_time + np.arange(len(data)) * dt
+
+        stimulus_data = stimulus_series.data[:]
+        if stimulus_series.timestamps is not None:
+             # if timestamps are explicitly stored
+            if stimulus_series.timestamps.shape[0] == stimulus_series.data.shape[0]:
+                 stimulus_timestamps = stimulus_series.timestamps[:]
+            else:
+                 # Timestamps might be a different shape or not present, calculate from rate
+                 dt = 1.0 / stimulus_series.rate
+                 stimulus_timestamps = stimulus_series.starting_time + np.arange(len(stimulus_data)) * dt
+        else:
+            # Calculate timestamps from rate
+            dt = 1.0 / stimulus_series.rate
+            stimulus_timestamps = stimulus_series.starting_time + np.arange(len(stimulus_data)) * dt
+
+
+    print(f"Loaded {len(data)} data points from {acquisition_series.name}.")
+    print(f"Data unit: {acquisition_series.unit}")
+    print(f"Stimulus unit: {stimulus_series.unit}")
+
+    # Create plots
+    fig, ax1 = plt.subplots(figsize=(12, 6))
+
+    # Plot acquisition data
+    ax1.plot(timestamps, data, label='Acquired Data')
+    ax1.set_xlabel('Time (seconds)')
+    ax1.set_ylabel(f'Voltage/Current ({acquisition_series.unit})', color='blue')
+    ax1.tick_params(axis='y', labelcolor='blue')
+
+    # Create a second y-axis for stimulus data
+    ax2 = ax1.twinx()
+    ax2.plot(stimulus_timestamps, stimulus_data, color='red', label='Stimulus')
+    ax2.set_ylabel(f'Stimulus ({stimulus_series.unit})', color='red')
+    ax2.tick_params(axis='y', labelcolor='red')
+
+    plt.title(f"Acquired Data and Stimulus for {acquisition_series.name}")
+    fig.tight_layout() # Adjust layout to prevent labels overlapping
+    plt.show()
+
+except KeyError as e:
+    print(f"Could not find expected data series in the NWB file: {e}")
+    print("Please check the available data interfaces in the NWB file.")
+except Exception as e:
+    print(f"An error occurred while visualizing the data: {e}")
+    print("It's possible that the data structure or content is not in the expected format.")
+
+
+# %% [markdown]
+# ## Summary and Future Directions
+#
+# This notebook provided a basic introduction to accessing and visualizing intracellular electrophysiology data from Dandiset 001359. We demonstrated how to load the Dandiset, navigate an NWB file, and plot acquired signals alongside the applied stimulus.
+#
+# Possible future directions for analysis include:
+#
+# *   Exploring other NWB files in the Dandiset.
+# *   Analyzing different types of data within the NWB files (e.g., spike times if present).
+# *   Implementing more sophisticated analysis techniques, such as calculating resting membrane potential, input resistance, or analyzing action potential features.
+# *   Integrating the electrophysiology data with other potential data modalities in the Dandiset (if available and relevant).
+#
+# Remember that this is a large and rich dataset, and this notebook only scratches the surface of potential explorations.
+================================
+Total prompt tokens: 70470 + 0
+Total completion tokens: 4164 + 0
+
+=========================================
+
+write_to_file for 'notebook.py':
+Successfully wrote 9059 characters to notebook.py
+=========================================
+
+Using model: google/gemini-2.5-flash-preview
+Num. messages in conversation: 10
+Submitting completion request...
+Processing response...
+I have successfully written the `notebook.py` file with the required content.
+The next step is to convert it to `notebook.ipynb` and execute it as specified in the plan: `jupytext --to notebook notebook.py && jupyter execute --inplace --allow-errors notebook.ipynb`.
+I need to use the `execute_command` tool for this.
+The command is `jupytext --to notebook notebook.py && jupyter execute --inplace --allow-errors notebook.ipynb`.
+This command converts a file and executes a Jupyter notebook, which could potentially have side effects if the notebook code were malicious, although in this case I have generated the code myself based on the user's instructions. The user explicitly requested this command with a timeout and allowance for errors. Therefore, I will set `requires_approval` to false as per the instructions to execute this specific command implicitly and setting the timeout to 600 seconds is also part of the plan.
+
+Tool: execute_command
+Params: {'command': 'jupytext --to notebook notebook.py && jupyter execute --inplace --allow-errors notebook.ipynb', 'requires_approval': 'false', 'timeout': '600'}
+================================
+Command to be executed
+jupytext --to notebook notebook.py && jupyter execute --inplace --allow-errors notebook.ipynb
+================================
+/home/magland/.local/lib/python3.12/site-packages/jupytext/cell_reader.py:20: UserWarning: Sphinx Gallery in version 0.19.0 is not supported by Jupytext. Please use sphinx-gallery<=0.7.0 instead. If that is an issue, feel free to report it at https://github.com/mwouts/jupytext/issues, or even better, prepare a PR to handle the new signature of sphinx_gallery.notebook.rst2md.
+  warnings.warn(
+[jupytext] Reading notebook.py in format py
+[jupytext] Writing notebook.ipynb
+[NbClientApp] Executing notebook.ipynb
+[NbClientApp] Executing notebook with kernel: 
+[NbClientApp] Save executed results to notebook.ipynb
+Total prompt tokens: 112342 + 0
+Total completion tokens: 4441 + 0
+
+=========================================
+
+execute_command 'jupytext --to notebook notebook.py && jupyter execute --inplace --allow-errors notebook.ipynb' (requires approval):
+Command executed successfully
+STDOUT:
+[jupytext] Reading notebook.py in format py
+[jupytext] Writing notebook.ipynb
+
+STDERR:
+/home/magland/.local/lib/python3.12/site-packages/jupytext/cell_reader.py:20: UserWarning: Sphinx Gallery in version 0.19.0 is not supported by Jupytext. Please use sphinx-gallery<=0.7.0 instead. If that is an issue, feel free to report it at https://github.com/mwouts/jupytext/issues, or even better, prepare a PR to handle the new signature of sphinx_gallery.notebook.rst2md.
+  warnings.warn(
+[NbClientApp] Executing notebook.ipynb
+[NbClientApp] Executing notebook with kernel: 
+[NbClientApp] Save executed results to notebook.ipynb
+
+=========================================
+
+Using model: google/gemini-2.5-flash-preview
+Num. messages in conversation: 12
+Submitting completion request...
+Processing response...
+I have successfully executed the command to convert `notebook.py` to `notebook.ipynb` and execute it. The plan is complete.
+I should now use the `attempt_completion` tool to present the result to the user.
+The result is the creation and execution of the Jupyter notebook `notebook.ipynb`.
+I can provide a command to open the executed notebook file (`notebook.ipynb`) to let the user see the results directly.
+
+Tool: attempt_completion
+Params: {'result': 'Created and executed the Jupytext notebook `notebook.py`, which has been converted to `notebook.ipynb`. The notebook explores Dandiset 001359, loads an NWB file, and visualizes some intracellular electrophysiology data.', 'command': 'open notebook.ipynb'}
+Created and executed the Jupytext notebook `notebook.py`, which has been converted to `notebook.ipynb`. The notebook explores Dandiset 001359, loads an NWB file, and visualizes some intracellular electrophysiology data.
+Total prompt tokens: 154775 + 0
+Total completion tokens: 4629 + 0
+
