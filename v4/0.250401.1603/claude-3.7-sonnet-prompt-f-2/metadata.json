@@ -1,0 +1,18 @@
+{
+  "dandiset_id": "001359",
+  "version": "0.250401.1603",
+  "model": "anthropic/claude-3.7-sonnet",
+  "prompt": "prompt-f-2.txt",
+  "total_prompt_tokens": 1028358,
+  "total_completion_tokens": 18984,
+  "total_vision_prompt_tokens": 7725,
+  "total_vision_completion_tokens": 1293,
+  "elapsed_time_seconds": 633.0340127944946,
+  "timestamp": "2025-05-12 11:28:43",
+  "system_info": {
+    "platform": "Linux-6.8.0-59-generic-x86_64-with-glibc2.35",
+    "hostname": "system76-pc",
+    "processor": "x86_64",
+    "python_version": "3.12.2"
+  }
+}
